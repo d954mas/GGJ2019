@@ -11,7 +11,7 @@ local EVENTS = {
 
 ---@param self World
 local function init_systems(self)
-	self.ecs_world
+	--self.ecs_world
 end
 
 function M:initialize()
@@ -21,7 +21,6 @@ function M:initialize()
 	self.ecs_world = ECS.world()
 end
 
-function M
 
 function M:update(dt, no_save)
 end
