@@ -1,0 +1,36 @@
+local COMMON = require "libs.common"
+local WORLD = require "world.world"
+
+---@class SelfMainG
+
+---@param self SelfMainG
+function init(self)
+	self.energy_lbl = gui.get_node("energy_lbl")
+	self.ore_lbl = gui.get_node("ore_lbl")
+	self.steel_lbl = gui.get_node("steel_lbl")
+end
+
+---@param self SelfMainG
+function final(self)
+end
+---@param self SelfMainG
+function update(self, dt)
+	gui.set_text(self.energy_lbl,"Energy:" .. WORLD.resources.energy)
+	gui.set_text(self.ore_lbl,"Ore:" .. WORLD.resources.ore)
+	gui.set_text(self.steel_lbl,"Steel:" .. WORLD.resources.steel)
+end
+---@param self SelfMainG
+function on_message(self, message_id, message, sender)
+	-- Add message-handling code here
+	-- Remove this function if not needed
+end
+---@param self SelfMainG
+function on_input(self, action_id, action)
+	-- Add input-handling code here
+	-- Remove this function if not needed
+end
+---@param self SelfMainG
+function on_reload(self)
+	-- Add input-handling code here
+	-- Remove this function if not needed
+end

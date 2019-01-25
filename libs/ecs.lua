@@ -418,6 +418,7 @@ the Software, and to permit persons to whom the Software is furnished to do so,
     local worldMetaTable
 
 ---@class ECSWorld
+---@field world World
 local World = {}
 function World:add(...)
 end
@@ -839,6 +840,14 @@ end
         end
     end
 
+    function tiny.clear(world)
+        tiny.clearEntities(world)
+        tiny.clearSystems(world)
+        tiny.refresh(world)
+    end
+
+
+
     --- Gets number of Entities in the World.
     function tiny.getEntityCount(world)
         return #world.entities
@@ -885,7 +894,8 @@ end
             clearSystems = tiny.clearSystems,
             getEntityCount = tiny.getEntityCount,
             getSystemCount = tiny.getSystemCount,
-            setSystemIndex = tiny.setSystemIndex
+            setSystemIndex = tiny.setSystemIndex,
+			clear = tiny.clear
         },
         __tostring = function()
             return "<tiny-ecs_World>"
