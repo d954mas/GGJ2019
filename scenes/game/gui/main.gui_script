@@ -1,6 +1,7 @@
 local COMMON = require "libs.common"
 local WORLD = require "world.world"
 local RichText = require "richtext.richtext"
+local TextSettings = require "world.text_settings"
 
 ---@class SelfMainG
 
@@ -13,26 +14,8 @@ function init(self)
 	self.task_title_lbl = gui.get_node("task_title_lbl")
 	self.task_description_lbl = gui.get_node("task_description_lbl")
 
-	self.task_settings ={
-		fonts = {
-			Roboto = {
-				regular = hash("roboto_regular"),
-				italic = hash("roboto_regular"),
-				bold = hash("roboto_regular"),
-				bold_italic =hash("roboto_regular"),
-			},
-		},
-		align = RichText.ALIGN_CENTER,
-		width = 400,
-		color = vmath.vector4(1, 1, 1.0, 1.0),
-	}
-
-	self.task_title_settings = COMMON.LUME.clone_deep(self.task_settings)
-	self.task_title_settings.parent = self.task_title_lbl
-
-	self.task_description_settings = COMMON.LUME.clone_deep(self.task_settings)
-	self.task_description_settings.parent = self.task_description_lbl
-	self.task_description_settings.align = RichText.ALIGN_LEFT
+	self.task_title_settings = TextSettings.base_center({parent = self.task_title_lbl,color = vmath.vector4(1,1,1,1)})
+	self.task_description_settings = TextSettings.base_left({parent = self.task_description_lbl,color = vmath.vector4(1,1,1,1)})
 end
 
 ---@param self SelfMainG
@@ -50,7 +33,7 @@ function update(self, dt)
 		for _,w in ipairs(self.title_words or {})do
 			gui.delete_node(w.node)
 		end
-		self.title_words = RichText.create(self.task_title,"Roboto",self.task_title_settings)
+		--self.title_words = RichText.create(self.task_title,"Roboto",self.task_title_settings)
 	end
 	if self.task_description ~=  WORLD.tasks:get_current():get_description() then
 		self.task_description = WORLD.tasks:get_current():get_description()

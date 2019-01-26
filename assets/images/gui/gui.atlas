@@ -5,10 +5,16 @@ images {
   image: "/assets/images/white.png"
 }
 images {
-  image: "/assets/images/gui/task_check.png"
+  image: "/assets/images/gui/task_check_on.png"
 }
 images {
   image: "/assets/images/gui/portraits/ai.png"
+}
+images {
+  image: "/assets/images/gui/panel-1.png"
+}
+images {
+  image: "/assets/images/gui/task_check_off.png"
 }
 margin: 0
 extrude_borders: 2
