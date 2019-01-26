@@ -4,6 +4,7 @@ local MultipleSubscription = require "libs.multiple_subscription"
 local ECS = require "libs.ecs"
 local SYSTEMS = require "world.systems"
 local BUILDINGS = require "world.buildings"
+local SM = require "Jester.jester"
 
 ---@class World:Observable
 local M = COMMON.class("World")
@@ -82,6 +83,16 @@ end
 
 function M:load(file)
 
+end
+
+
+
+--region GAME
+
+function M:click_slot(slot)
+	print("slot clicked:" .. slot)
+	COMMON.GLOBAL.slot = slot
+	SM.show("SlotModal",{slot = slot},{popup = true})
 end
 
 return M()

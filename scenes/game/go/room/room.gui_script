@@ -1,0 +1,55 @@
+local COMMON = require "libs.common"
+local SCRIPTS = require "libs.scripts.scripts_container"
+local GUI_FOLLOW_GO = require "libs.scripts.gui_follow_go_gui_script"
+local WORLD = require "world.world"
+
+---@class selfRoomGui
+
+---@param self selfRoomGui
+function init(self)
+	self.scripts = SCRIPTS()
+	self.follow_script = GUI_FOLLOW_GO(gui.get_node("root"))
+	self.scripts:add_script(self.follow_script)
+	self.scripts:init(self)
+
+	self.click_area = gui.get_node("click_area")
+
+	COMMON.INPUT.acquire()
+	self.input = COMMON.INPUT()
+	self.input:add(COMMON.HASHES.INPUT_TOUCH,function(_,action_id,action)
+		if gui.pick_node(self.click_area,action.x,action.y) then
+			WORLD:click_slot(self.slot)
+		end
+	end,true)
+end
+
+---@param self selfRoomGui
+function final(self)
+	self.scripts:final(self)
+	COMMON.INPUT.release()
+end
+
+---@param self selfRoomGui
+function update(self, dt)
+	self.scripts:update(self,dt)
+end
+
+---@param self selfRoomGui
+function on_message(self, message_id, message, sender)
+	self.scripts:on_message(self, message_id,message,sender)
+	if message_id == hash("set_slot") then
+		self.slot = message.slot
+
+	end	
+end
+
+---@param self selfRoomGui
+function on_input(self, action_id, action)
+	self.scripts:on_input(self,action_id,action)
+	self.input:on_input(self,action_id,action)
+end
+
+---@param self selfRoomGui
+function on_reload(self)
+	self.scripts:on_reload(self)
+end

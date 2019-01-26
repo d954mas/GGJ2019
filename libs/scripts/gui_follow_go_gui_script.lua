@@ -15,7 +15,7 @@ function Script:update_position(message_id, message, sender)
 	gui.set_position(self.root_node,assert(message.position))
 end
 
-function Script:on_message(message_id, message, sender)
+function Script:on_message(go,message_id, message, sender)
 	self.msg_receiver:on_message(self,message_id, message, sender)
 end
 

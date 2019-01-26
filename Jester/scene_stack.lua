@@ -103,6 +103,7 @@ local function show_new_scene(self, current_scene, new_scene, new_scene_input, o
     assert(new_scene, "new_scene can't be nil")
     LOG.i("change scene from " .. (current_scene and current_scene._name or "nil") .. " to " .. new_scene._name)
     options = options or {}
+    print("MODAL:" .. tostring(options.modal))
 
     if new_scene == current_scene and not options.reload then
         LOG.i("scene:" .. current_scene._name .. " already on top")
@@ -154,12 +155,26 @@ end
 
 function M:show(scene_name, input, options)
     assert(not self.co, "work in progress.Can't show new scene")
+    input = input or {}
+    options = options or {}
     local scene = self:get_scene_by_name(scene_name)
-    LOG.i("show " .. scene_name)
-    local current_scene = self.stack:pop()
+   
+    local current_scene =  options.popup and self.stack:peek() or self.stack:pop()
     self.stack:push(scene)
     self.co = coroutine.create(show_new_scene)
     local ok, res = coroutine.resume(self.co, self, current_scene, scene, input, options)
+    if not ok then
+        LOG.e(res, TAG)
+        self.co = nil
+    end
+end
+
+function M:back(input, options)
+    assert(not self.co, "work in progress.Can't show new scene")
+    local prev_scene =  self.stack:pop()
+    self.co = coroutine.create(show_new_scene)
+    
+    local ok, res = coroutine.resume(self.co, self, prev_scene, self.stack:peek(), input, options)
     if not ok then
         LOG.e(res, TAG)
         self.co = nil
