@@ -5,10 +5,16 @@ local COMMON = require "libs.common"
 local M = COMMON.class("Locale")
 
 function M:initialize(eng)
+	self.ENERGY = "%d <img=gui:energy_icon/>"
+	self.ORE = "%d <img=gui:ore_icon/>"
+	self.STEEL = "%d <img=gui:steel_icon/>"
+	self.TECH = "%d <img=gui:tech_icon/>"
+
+
 	self.NAME_AI = eng and "AI" or "ИИ"
 	self.TASK_1_NAME = eng and "" or "Калибровка реактора"
 	self.TASK_1_DESCRIPTION_1 = eng and "" or "Установить реактор"
-	self.TASK_1_DESCRIPTION_2 = eng and "" or "Добыть 100 энергии"
+	self.TASK_1_DESCRIPTION_2 = eng and "" or "Добыть 100 <img=gui:energy_icon/>"
 	self.TASK_1_TEXT = eng and "" or "Внештатная ситуация. Множественные повреждения корпуса.Выполняю аварийную посадку." .. "Посадка успешна."
 	self.TASK_1_TEXT_2 = eng and "" or "Согласно директиве e1286 выполняю прерывание криосна.5, 4, 3, 2, 1.Прерывание выполнено. Показатели в пределах нормы."
 	.. "Корабль привестует капитан. Иницирую передачу прав "

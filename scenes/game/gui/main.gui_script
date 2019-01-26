@@ -5,17 +5,25 @@ local TextSettings = require "world.text_settings"
 
 ---@class SelfMainG
 
+local function set_richtext(self,name, settings, text)
+	name = "richtext_" .. name
+	if self[name] then
+		for _,w in ipairs(self[name]) do
+			gui.delete_node(w.node)
+		end
+	end
+	self[name] = RichText.create(text,"Roboto", settings)
+end
+
 ---@param self SelfMainG
 function init(self)
-	self.energy_lbl = gui.get_node("energy_lbl")
-	self.ore_lbl = gui.get_node("ore_lbl")
-	self.steel_lbl = gui.get_node("steel_lbl")
-	self.tech_lbl = gui.get_node("tech_lbl")
-	self.task_title_lbl = gui.get_node("task_title_lbl")
-	self.task_description_lbl = gui.get_node("task_description_lbl")
+	self.energy_settings = TextSettings.base_left({parent = gui.get_node("energy_lbl"),color = vmath.vector4(1,1,1,1)})
+	self.ore_settings = TextSettings.base_left({parent = gui.get_node("ore_lbl"),color = vmath.vector4(1,1,1,1)})
+	self.steel_settings = TextSettings.base_left({parent = gui.get_node("steel_lbl"),color = vmath.vector4(1,1,1,1)})
+	self.tech_settings = TextSettings.base_left({parent = gui.get_node("tech_lbl"),color = vmath.vector4(1,1,1,1)})
 
-	self.task_title_settings = TextSettings.base_center({parent = self.task_title_lbl,color = vmath.vector4(1,1,1,1)})
-	self.task_description_settings = TextSettings.base_left({parent = self.task_description_lbl,color = vmath.vector4(1,1,1,1)})
+	self.task_title_settings = TextSettings.base_center({parent = gui.get_node("task_title_lbl"),color = vmath.vector4(1,1,1,1)})
+	self.task_description_settings = TextSettings.base_left({parent = gui.get_node("task_description_lbl"),color = vmath.vector4(1,1,1,1)})
 end
 
 ---@param self SelfMainG
@@ -23,24 +31,21 @@ function final(self)
 end
 ---@param self SelfMainG
 function update(self, dt)
-	gui.set_text(self.energy_lbl,"Energy:" .. WORLD.resources.energy)
-	gui.set_text(self.ore_lbl,"Ore:" .. WORLD.resources.ore)
-	gui.set_text(self.steel_lbl,"Steel:" .. WORLD.resources.steel)
-	gui.set_text(self.tech_lbl,"Tech:" .. WORLD.resources.tech)
+	set_richtext(self,"energy",self.energy_settings,string.format(WORLD.locale.ENERGY,WORLD.resources.energy))
+	set_richtext(self,"ore",self.ore_settings,string.format(WORLD.locale.ORE,WORLD.resources.ore))
+	set_richtext(self,"steel",self.steel_settings,string.format(WORLD.locale.STEEL,WORLD.resources.steel))
+	set_richtext(self,"tech",self.tech_settings,string.format(WORLD.locale.TECH,WORLD.resources.tech))
+
 
 	if self.task_title ~=  WORLD.tasks:get_current():get_title() then
 		self.task_title  =  WORLD.tasks:get_current():get_title()
-		for _,w in ipairs(self.title_words or {})do
-			gui.delete_node(w.node)
-		end
+	--	set_richtext(self,"title",self.energy_settings,string.format(WORLD.locale.ENERGY,WORLD.resources.energy))
+
 		--self.title_words = RichText.create(self.task_title,"Roboto",self.task_title_settings)
 	end
 	if self.task_description ~=  WORLD.tasks:get_current():get_description() then
 		self.task_description = WORLD.tasks:get_current():get_description()
-		for _,w in ipairs(self.description_words or {})do
-			gui.delete_node(w.node)
-		end
-		self.description_words = RichText.create(self.task_description,"Roboto",self.task_description_settings)
+		set_richtext(self,"description",self.task_description_settings,self.task_description)
 	end
 	--gui.set_text(self.task_description_lbl,WORLD.tasks:get_current():get_description())
 

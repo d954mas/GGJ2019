@@ -36,7 +36,7 @@ background_color {
 nodes {
   position {
     x: 0.0
-    y: 523.0
+    y: 514.0
     z: 0.0
     w: 1.0
   }
@@ -47,8 +47,8 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 1.0
-    y: 1.0
+    x: 1.4
+    y: 1.4
     z: 1.0
     w: 1.0
   }
@@ -89,8 +89,8 @@ nodes {
 }
 nodes {
   position {
-    x: 0.0
-    y: 0.0
+    x: 10.0
+    y: -14.0
     z: 0.0
     w: 1.0
   }
@@ -120,7 +120,7 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "Energy:\n"
+  text: "\n"
   ""
   font: "roboto_regular"
   id: "energy_lbl"
@@ -153,8 +153,8 @@ nodes {
 }
 nodes {
   position {
-    x: 289.0
-    y: 0.0
+    x: 130.0
+    y: -14.0
     z: 0.0
     w: 1.0
   }
@@ -184,7 +184,7 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "Ore:\n"
+  text: "\n"
   ""
   font: "roboto_regular"
   id: "ore_lbl"
@@ -217,8 +217,8 @@ nodes {
 }
 nodes {
   position {
-    x: 563.0
-    y: 0.0
+    x: 250.0
+    y: -14.0
     z: 0.0
     w: 1.0
   }
@@ -248,7 +248,7 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "Steel:"
+  text: ""
   font: "roboto_regular"
   id: "steel_lbl"
   xanchor: XANCHOR_NONE
@@ -280,8 +280,8 @@ nodes {
 }
 nodes {
   position {
-    x: 766.0
-    y: 0.0
+    x: 370.0
+    y: -14.0
     z: 0.0
     w: 1.0
   }
@@ -311,7 +311,7 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "Steel:"
+  text: ""
   font: "roboto_regular"
   id: "tech_lbl"
   xanchor: XANCHOR_NONE
@@ -343,8 +343,8 @@ nodes {
 }
 nodes {
   position {
-    x: 858.0
-    y: 425.0
+    x: 825.0
+    y: 431.0
     z: 0.0
     w: 1.0
   }
@@ -355,8 +355,8 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 1.0
-    y: 1.0
+    x: 1.4
+    y: 1.4
     z: 1.0
     w: 1.0
   }
@@ -460,7 +460,7 @@ nodes {
 }
 nodes {
   position {
-    x: -89.0
+    x: -81.143
     y: 45.0
     z: 0.0
     w: 1.0

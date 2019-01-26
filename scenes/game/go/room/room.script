@@ -1,9 +1,20 @@
 local COMMON = require "libs.common"
 local SCRIPTS = require "libs.scripts.scripts_container"
 local GUI_FOLLOW_GO = require "libs.scripts.gui_follow_go_go_script"
+local WORLD = require "world.world"
 
 go.property("slot", 0)
 ---@class selfRoomGO
+
+---@param self selfRoomGO
+local function show_building(self,show)
+    if self.show ~= show then
+        self.show = show
+        msg.post("#sprite",show and COMMON.HASHES.MSG_ENABLE or COMMON.HASHES.MSG_DISABLE)
+        msg.post("#gui",show and COMMON.HASHES.MSG_ENABLE or COMMON.HASHES.MSG_DISABLE)
+        msg.post("game:/main_asteroid/path" .. (self.slot-1),show and COMMON.HASHES.MSG_ENABLE or COMMON.HASHES.MSG_DISABLE)
+    end
+end
 
 ---@param self selfRoomGO
 function init(self)
@@ -11,7 +22,12 @@ function init(self)
     self.scripts:add_script(GUI_FOLLOW_GO("#gui"))
     self.scripts:init(self)
     msg.post("#gui", "set_slot", {slot = self.slot})
+    self.building = WORLD.buildings[self.slot]
+    self.show = true
+    show_building(self,false)
+
 end
+
 
 ---@param self selfRoomGO
 function final(self)
@@ -21,6 +37,9 @@ end
 ---@param self selfRoomGO
 function update(self, dt)
     self.scripts:update(self,dt)
+    if self.building.state ~= self.building.STATES.HIDE then
+        show_building(self,true)
+    end
 end
 
 ---@param self selfRoomGO

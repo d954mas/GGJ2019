@@ -6,6 +6,24 @@ local WORLD = require "world.world"
 ---@class selfRoomGui
 
 ---@param self selfRoomGui
+local function building_state_changed(self)
+	if self.building and  self.state ~= self.building.state then
+		self.state = self.building.state
+		if self.state == self.building.STATES.HIDE then
+			gui.set_enabled(self.build, false)
+			gui.set_enabled(self.not_build, false)
+		elseif self.state == self.building.STATES.NOT_BUILD then
+			gui.set_enabled(self.build, false)
+			gui.set_enabled(self.not_build, true)
+		elseif self.state == self.building.STATES.BUILD then
+			gui.set_enabled(self.build, true)
+			gui.set_enabled(gui.get_node("build/icon"), false)
+			gui.set_enabled(self.not_build, false)
+		end
+	end
+end
+
+---@param self selfRoomGui
 function init(self)
 	self.scripts = SCRIPTS()
 	self.follow_script = GUI_FOLLOW_GO(gui.get_node("root"))
@@ -13,6 +31,13 @@ function init(self)
 	self.scripts:init(self)
 
 	self.click_area = gui.get_node("click_area")
+	self.not_build = gui.get_node("not_build")
+	self.build = gui.get_node("build")
+	self.build_clock = gui.get_node("build/clock")
+
+
+	gui.set_enabled(self.build, false)
+	gui.set_enabled(self.not_build, false)
 
 	COMMON.INPUT.acquire()
 	self.input = COMMON.INPUT()
@@ -32,6 +57,8 @@ end
 ---@param self selfRoomGui
 function update(self, dt)
 	self.scripts:update(self,dt)
+	building_state_changed(self)
+	gui.set_fill_angle(self.build_clock,-360 * self.building.e.time/self.building.e.total_time)
 end
 
 ---@param self selfRoomGui
@@ -39,7 +66,7 @@ function on_message(self, message_id, message, sender)
 	self.scripts:on_message(self, message_id,message,sender)
 	if message_id == hash("set_slot") then
 		self.slot = message.slot
-
+		self.building = WORLD.buildings[self.slot]
 	end	
 end
 

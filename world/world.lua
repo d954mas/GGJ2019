@@ -25,8 +25,8 @@ function M:initialize()
 	self.ecs_world.world = self
 	self.time_scale = 1
 	self.resources = {
-		energy = 100, --нужна для работы роботов и турелей. И для силового поля. Так-же для покупки и апгрейда
-		ore = 100, --добывается роботами на астероидах
+		energy = 0, --нужна для работы роботов и турелей. И для силового поля. Так-же для покупки и апгрейда
+		ore = 0, --добывается роботами на астероидах
 		steel = 0, --из руды на заводе получаем
 		hp = 100, --здоровье базы.Если в 0 то мы проиграли. Возвращаемся на прошлый stage
 		tech = 0, --очки для прокачки
@@ -38,7 +38,7 @@ function M:initialize()
 	4)гипердвигатель(строим чтобы долететь до земли)
 	--]]
 	---@type Building[]
-	self.buildings = {BUILDINGS.ore(), BUILDINGS.factory(), BUILDINGS.lab()}
+	self.buildings = {BUILDINGS.generator(),BUILDINGS.ore(), BUILDINGS.factory(), BUILDINGS.lab(),BUILDINGS.ore()}
 	for _,b in ipairs(self.buildings) do
 		self.ecs_world:addEntity(b.e)
 	end
@@ -99,7 +99,8 @@ end
 
 function M:click_slot(slot)
 	COMMON.GLOBAL.slot = slot
-	SM.show("SlotModal",{slot = slot},{popup = true})
+	self.buildings[slot]:on_touch()
+	--SM.show("SlotModal",{slot = slot},{popup = true})
 end
 
 return M()

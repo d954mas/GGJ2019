@@ -16,6 +16,21 @@ images {
 images {
   image: "/assets/images/gui/task_check_off.png"
 }
+images {
+  image: "/assets/images/gui/energy_icon.png"
+}
+images {
+  image: "/assets/images/gui/ore_icon.png"
+}
+images {
+  image: "/assets/images/gui/steel_icon.png"
+}
+images {
+  image: "/assets/images/gui/tech_icon.png"
+}
+images {
+  image: "/assets/images/gui/deadline_clock.png"
+}
 margin: 0
 extrude_borders: 2
 inner_padding: 0

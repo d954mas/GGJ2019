@@ -16,7 +16,7 @@ function Task:check()
 end
 
 function Task:get_description()
-    return self:check() and "<img=gui:task_check_on/>" or "<img=gui:task_check_off/>" ..  self.description
+    return (self:check() and "<img=gui:task_check_on/>" or "<img=gui:task_check_off/>") ..  self.description
 end
 
 function Task:get_title()
@@ -27,7 +27,7 @@ end
 ---@class ComplexTask:Task
 local ComplexTask = COMMON.class("ComplexTask",Task)
 
-function ComplexTask:initialize(world,title)
+function ComplexTask:initialize(title,world)
     Task.initialize(self,title,"",world)
     self.tasks = {}
 end
@@ -76,7 +76,7 @@ function CallbackTask:initialize(title,text,world,cb)
     self.cb = assert(cb)
 end
 
-function ComplexTask:check()
+function CallbackTask:check()
     return self.cb()
 end
 
@@ -85,12 +85,8 @@ local Task1 = COMMON.class("Task1",ComplexTask)
 
 function Task1:initialize(world)
     ComplexTask.initialize(self,world.locale.TASK_1_NAME,world)
-    self:add_task(CallbackTask("",world.locale.TASK_1_DESCRIPTION_1,world,function() return false end))
-    self:add_task(CallbackTask("",world.locale.TASK_1_DESCRIPTION_2,world,function() return false end))
-end
-
-function Task1:check()
-    return false
+    self:add_task(CallbackTask("",world.locale.TASK_1_DESCRIPTION_1,world,function() return self.world.buildings[1].state == self.world.buildings[1].STATES.BUILD end))
+    self:add_task(CallbackTask("",world.locale.TASK_1_DESCRIPTION_2,world,function() return self.world.resources.energy >=100 end))
 end
 
 
@@ -135,6 +131,7 @@ end
 local M = {}
 
 function M.new_tasks(world)
+    assert(world)
     local tasks = Tasks()
     tasks:add_task(EmptyTask(world))
     tasks:add_task(Task1(world))

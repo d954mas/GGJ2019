@@ -27,6 +27,7 @@ local function set_name(self,text)
 end
 
 local function set_richtext(self,name, settings, text)
+	name = "richtext_" .. name
 	if self[name] then
 		for _,w in ipairs(self[name]) do
 			gui.delete_node(w.node)

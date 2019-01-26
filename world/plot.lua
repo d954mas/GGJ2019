@@ -50,6 +50,7 @@ function IntroLine:initialize(world)
 		SM.show("TextModal",{dialog = dialog},{popup = true})
 		self:wait_text_modal()
 		world.tasks:skip_task()
+		world.buildings[1].state = world.buildings[1].STATES.NOT_BUILD
 	end
 end
 

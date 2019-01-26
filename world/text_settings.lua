@@ -13,6 +13,7 @@ local base ={
     align = RichText.ALIGN_CENTER,
     width = 400,
     color = vmath.vector4(0, 0, 0, 1.0),
+    position = vmath.vector3(0,18,0)
 }
 
 local base_left = COMMON.LUME.clone_deep(base)

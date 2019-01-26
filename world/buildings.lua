@@ -6,14 +6,38 @@ local M = {}
 ---@field e ECSEntity
 local Building = COMMON.class("Building")
 
+local STATES = {
+	HIDE = 1, NOT_BUILD = 2, BUILD = 3
+}
+
+--Building.static = static
+
 function Building:initialize()
+	self.STATES = STATES
+	self.state = STATES.HIDE
 	self.e = {total_time = 10,time = 0,time_progress = 0}
-	self.e.on_time = function(e,world) self:on_time(world) end
+	self.e.on_time = function(e,world) if self.state == STATES.BUILD then self:on_time(world) end end
+	self.cost = {}
+	--self.state = self.static.states.HIDE
+end
+
+function Building:set_state(state)
+	self.state = assert(state)
+	self.e.time = 0
 end
 
 ---@param world World
 function Building:on_time(world)
 	world:change_ore(5)
+end
+
+function Building:on_touch()
+	if self.state == STATES.NOT_BUILD then
+		if #self.cost == 0 then
+			--no cost upgrade
+			self:set_state(STATES.BUILD)
+		end
+	end
 end
 
 ---@class FactoryBuilding:Building
@@ -41,7 +65,20 @@ function Lab:on_time(world)
 	world:change_tech(6)
 end
 
+---@class GeneratorBuilding:Building
+local Generator = COMMON.class("Generator",Building)
 
+function Generator:initialize()
+	Building.initialize(self)
+	self.e.total_time = 4
+end
+
+---@param world World
+function Generator:on_time(world)
+	world:change_energy(5)
+end
+
+M.generator = Generator
 M.ore = Building
 M.factory = Factory
 M.lab = Lab
