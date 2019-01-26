@@ -3,6 +3,22 @@ fonts {
   name: "roboto_regular"
   font: "/assets/fonts/roboto_regular.font"
 }
+fonts {
+  name: "Roboto-Bold"
+  font: "/assets/fonts/Roboto-Bold.font"
+}
+fonts {
+  name: "Roboto-BoldItalic"
+  font: "/assets/fonts/Roboto-BoldItalic.font"
+}
+fonts {
+  name: "Roboto-Italic"
+  font: "/assets/fonts/Roboto-Italic.font"
+}
+fonts {
+  name: "Roboto-Regular"
+  font: "/assets/fonts/Roboto-Regular.font"
+}
 textures {
   name: "gui"
   texture: "/assets/images/gui/gui.atlas"

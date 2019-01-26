@@ -40,11 +40,16 @@ function IntroLine:initialize(world)
 		local l = world.locale
 		local dialog = {
 			{text = l.TASK_1_TEXT, name = l.NAME_AI},
-			{text = l.TASK_1_TEXT_2,  name = l.NAME_AI, a1 = {text = l.TASK_1_TEXT_2_A_1}, a2= {text = l.TASK_1_TEXT_2_A_2} }
+			{text = l.TASK_1_TEXT_2,  name = l.NAME_AI, a1 = {text = l.TASK_1_TEXT_2_A_1}, a2= {text = l.TASK_1_TEXT_2_A_2} },
+			{text = l.TASK_1_TEXT_3,  name = l.NAME_AI,a1 = {text = l.TASK_1_TEXT_3_A_1,page = 4}, a2 = {text = l.TASK_1_TEXT_3_A_2,page = 5}, a3= {text = l.TASK_1_TEXT_3_A_3,page = 6} },
+			{text = l.TASK_1_TEXT_4,  name = l.NAME_AI, a1 = {text = l.TASK_1_TEXT_4_A_1,page = 5}, a2= {text = l.TASK_1_TEXT_4_A_2,page = 6} },
+			{text = l.TASK_1_TEXT_5,  name = l.NAME_AI, a1 = {text = l.TASK_1_TEXT_5_A_1,page=4}, a2= {text = l.TASK_1_TEXT_5_A_2,page = 6} },
+			{text = l.TASK_1_TEXT_6,  name = l.NAME_AI, a1 = {text = l.TASK_1_TEXT_6_A_1} }
 		}
 
 		SM.show("TextModal",{dialog = dialog},{popup = true})
 		self:wait_text_modal()
+		world.tasks:skip_task()
 	end
 end
 

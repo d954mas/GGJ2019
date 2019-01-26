@@ -12,7 +12,6 @@ function init(self)
 end
 
 function update(self, dt)
-    print(self.pos.x)
     self.pos.x = self.pos.x - SPEED * dt * self.movement_scale
     if self.max_value ~= 0 and -self.pos.x > self.max_value then
         self.pos.x = - self.max_value

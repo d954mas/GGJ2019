@@ -76,7 +76,6 @@ function init(self)
 	self.btn_answer_3 = gui.get_node("btn_answer_3/bg")
 	self.btn_answer_3_lbl = gui.get_node("btn_answer_3/label")
 	self.portrait_img = gui.get_node("portrait")
-
 	self.text_settings = TextSettings.base_left({parent = self.text_lbl,width = 450 / gui.get_scale(self.text_lbl).x})
 	self.name_settings = TextSettings.base_center({parent = self.name_lbl,width = 450/ gui.get_scale(self.name_lbl).x})
 	self.a1_settings = TextSettings.base_center({parent = self.btn_answer_1_lbl,width = 450/ gui.get_scale(self.btn_answer_1_lbl).x,

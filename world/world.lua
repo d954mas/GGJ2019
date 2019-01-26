@@ -43,9 +43,10 @@ function M:initialize()
 		self.ecs_world:addEntity(b.e)
 	end
 	SYSTEMS.init_systems(self.ecs_world)
-	self.tasks = TASKS.new_tasks()
 	self.plot = PLOT(self)
 	self.locale = LOCALE()
+	self.tasks = TASKS.new_tasks(self)
+
 end
 
 
