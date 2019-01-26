@@ -12,13 +12,16 @@ local function building_state_changed(self)
 		if self.state == self.building.STATES.HIDE then
 			gui.set_enabled(self.build, false)
 			gui.set_enabled(self.not_build, false)
+			msg.post("/main_asteroid/room" .. self.slot .."_tiles",COMMON.HASHES.MSG_DISABLE)
 		elseif self.state == self.building.STATES.NOT_BUILD then
 			gui.set_enabled(self.build, false)
 			gui.set_enabled(self.not_build, true)
+			msg.post("/main_asteroid/room" .. self.slot .."_tiles",COMMON.HASHES.MSG_DISABLE)
 		elseif self.state == self.building.STATES.BUILD then
 			gui.set_enabled(self.build, true)
 			gui.set_enabled(gui.get_node("build/icon"), false)
 			gui.set_enabled(self.not_build, false)
+			msg.post("/main_asteroid/room" .. self.slot .."_tiles",COMMON.HASHES.MSG_ENABLE)
 		end
 	end
 end
@@ -38,6 +41,7 @@ function init(self)
 
 	gui.set_enabled(self.build, false)
 	gui.set_enabled(self.not_build, false)
+
 
 	COMMON.INPUT.acquire()
 	self.input = COMMON.INPUT()
@@ -66,6 +70,7 @@ function on_message(self, message_id, message, sender)
 	self.scripts:on_message(self, message_id,message,sender)
 	if message_id == hash("set_slot") then
 		self.slot = message.slot
+		msg.post("/main_asteroid/room" .. self.slot .."_tiles",COMMON.HASHES.MSG_DISABLE)
 		self.building = WORLD.buildings[self.slot]
 	end	
 end

@@ -142,30 +142,11 @@ instances {
 scale_along_z: 0
 embedded_instances {
   id: "asteroid"
-  data: "embedded_components {\n"
-  "  id: \"sprite\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"tile_set: \\\"/assets/images/game/game.atlas\\\"\\n"
-  "default_animation: \\\"spaceMeteors_004\\\"\\n"
-  "material: \\\"/assets/materials/sprite_nearest.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
-  "\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  ""
+  children: "go"
+  data: ""
   position {
     x: 0.0
-    y: 0.0
+    y: 17.0
     z: 0.1
   }
   rotation {
@@ -184,6 +165,7 @@ embedded_instances {
   id: "rooms"
   children: "pathes"
   children: "room1"
+  children: "room1_tiles"
   children: "room2"
   children: "room3"
   children: "room4"
@@ -191,7 +173,7 @@ embedded_instances {
   data: ""
   position {
     x: -2.0
-    y: 25.0
+    y: 42.0
     z: 0.11
   }
   rotation {
@@ -387,6 +369,81 @@ embedded_instances {
   scale3 {
     x: 1.0
     y: 0.4
+    z: 1.0
+  }
+}
+embedded_instances {
+  id: "go"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/images/game/game.atlas\\\"\\n"
+  "default_animation: \\\"asteroid\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.2
+    y: 1.2
+    z: 1.0
+  }
+}
+embedded_instances {
+  id: "room1_tiles"
+  data: "components {\n"
+  "  id: \"room1\"\n"
+  "  component: \"/scenes/game/go/room/room1.tilemap\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: -232.0
+    y: 3.0
+    z: 0.1
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 3.0
+    y: 3.0
     z: 1.0
   }
 }
