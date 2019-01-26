@@ -36,7 +36,7 @@ function init(self)
     --endregion
     JESTER.register(reg_scenes)
     JESTER.show("LogoScene")
-
+    sound.play("/music#sound")
 end
 
 function update(self, dt)
