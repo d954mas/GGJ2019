@@ -1,5 +1,6 @@
 local COMMON = require "libs.common"
 local WORLD = require "world.world"
+local RichText = require "richtext.richtext"
 
 ---@class SelfMainG
 
@@ -9,6 +10,29 @@ function init(self)
 	self.ore_lbl = gui.get_node("ore_lbl")
 	self.steel_lbl = gui.get_node("steel_lbl")
 	self.tech_lbl = gui.get_node("tech_lbl")
+	self.task_title_lbl = gui.get_node("task_title_lbl")
+	self.task_description_lbl = gui.get_node("task_description_lbl")
+
+	self.task_settings ={
+		fonts = {
+			Roboto = {
+				regular = hash("roboto_regular"),
+				italic = hash("roboto_regular"),
+				bold = hash("roboto_regular"),
+				bold_italic =hash("roboto_regular"),
+			},
+		},
+		align = RichText.ALIGN_CENTER,
+		width = 400,
+		color = vmath.vector4(1, 1, 1.0, 1.0),
+	}
+
+	self.task_title_settings = COMMON.LUME.clone_deep(self.task_settings)
+	self.task_title_settings.parent = self.task_title_lbl
+
+	self.task_description_settings = COMMON.LUME.clone_deep(self.task_settings)
+	self.task_description_settings.parent = self.task_description_lbl
+	self.task_description_settings.align = RichText.ALIGN_LEFT
 end
 
 ---@param self SelfMainG
@@ -20,6 +44,18 @@ function update(self, dt)
 	gui.set_text(self.ore_lbl,"Ore:" .. WORLD.resources.ore)
 	gui.set_text(self.steel_lbl,"Steel:" .. WORLD.resources.steel)
 	gui.set_text(self.tech_lbl,"Tech:" .. WORLD.resources.tech)
+
+	if self.task_title ~=  WORLD.tasks:get_current():get_title() then
+		self.task_title  =  WORLD.tasks:get_current():get_title()
+		RichText.create(self.task_title,"Roboto",self.task_title_settings)
+	end
+	if self.task_description ~=  WORLD.tasks:get_current():get_description() then
+		self.task_description = WORLD.tasks:get_current():get_description()
+		print("deskription:" .. self.task_description)
+		RichText.create(self.task_description,"Roboto",self.task_description_settings)
+	end
+	--gui.set_text(self.task_description_lbl,WORLD.tasks:get_current():get_description())
+
 end
 ---@param self SelfMainG
 function on_message(self, message_id, message, sender)

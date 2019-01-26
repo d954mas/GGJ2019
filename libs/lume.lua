@@ -449,12 +449,29 @@ function lume.keys(t)
 end
 
 
-function lume.clone(t)
+function lume.clone_shallow(t)
   local rtn = {}
   for k, v in pairs(t) do rtn[k] = v end
   return rtn
 end
 
+function lume.clone(t)
+ return lume.clone_shallow(t)
+end
+
+function lume.clone_deep(t)
+  local orig_type = type(t)
+  local copy
+  if orig_type == 'table' then
+    copy = {}
+    for orig_key, orig_value in next, t, nil do
+      copy[ lume.clone_deep(orig_key)] =  lume.clone_deep(orig_value)
+    end
+  else -- number, string, boolean, etc
+    copy = t
+  end
+  return copy
+end
 
 function lume.fn(fn, ...)
   assert(iscallable(fn), "expected a function as the first argument")

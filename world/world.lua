@@ -5,6 +5,7 @@ local ECS = require "libs.ecs"
 local SYSTEMS = require "world.systems"
 local BUILDINGS = require "world.buildings"
 local SM = require "Jester.jester"
+local TASKS = require "world.tasks"
 
 ---@class World:Observable
 local M = COMMON.class("World")
@@ -40,6 +41,7 @@ function M:initialize()
 		self.ecs_world:addEntity(b.e)
 	end
 	SYSTEMS.init_systems(self.ecs_world)
+	self.tasks = TASKS.new_tasks()
 end
 
 
@@ -90,7 +92,6 @@ end
 --region GAME
 
 function M:click_slot(slot)
-	print("slot clicked:" .. slot)
 	COMMON.GLOBAL.slot = slot
 	SM.show("SlotModal",{slot = slot},{popup = true})
 end
