@@ -103,7 +103,6 @@ local function show_new_scene(self, current_scene, new_scene, new_scene_input, o
     assert(new_scene, "new_scene can't be nil")
     LOG.i("change scene from " .. (current_scene and current_scene._name or "nil") .. " to " .. new_scene._name)
     options = options or {}
-    print("MODAL:" .. tostring(options.modal))
 
     if new_scene == current_scene and not options.reload then
         LOG.i("scene:" .. current_scene._name .. " already on top")

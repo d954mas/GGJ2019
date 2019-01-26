@@ -23,6 +23,7 @@ local scenes = {
     require "scenes.logo.logo_scene",
     require "scenes.game.game_scene",
     require "modals.slot_modal.slot_modal",
+    require "modals.text_modal.text_modal",
 }
 function init(self)
     COMMON.input_acquire()

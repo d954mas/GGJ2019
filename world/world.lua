@@ -6,6 +6,7 @@ local SYSTEMS = require "world.systems"
 local BUILDINGS = require "world.buildings"
 local SM = require "Jester.jester"
 local TASKS = require "world.tasks"
+local PLOT = require "world.plot"
 
 ---@class World:Observable
 local M = COMMON.class("World")
@@ -42,6 +43,7 @@ function M:initialize()
 	end
 	SYSTEMS.init_systems(self.ecs_world)
 	self.tasks = TASKS.new_tasks()
+	self.plot = PLOT(self)
 end
 
 
@@ -72,6 +74,7 @@ end
 
 function M:update(dt, no_save)
 	self.ecs_world:update(dt*self.time_scale)
+	self.plot:update(dt)
 end
 
 
