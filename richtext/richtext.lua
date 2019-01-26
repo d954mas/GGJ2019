@@ -211,7 +211,7 @@ local function create_text_node(word, font)
 end
 
 
-local function create_node(word, parent, font)
+local function create_node(word, parent, font,scale)
 	local node, metrics
 	if word.image then
 		node, metrics = create_box_node(word)
@@ -220,6 +220,7 @@ local function create_node(word, parent, font)
 	else
 		node, metrics = create_text_node(word, font)
 	end
+	gui.set_scale(node,vmath.vector4(scale))
 	gui.set_pivot(node, gui.PIVOT_NW)
 	gui.set_parent(node, parent)
 	gui.set_inherit_alpha(node, true)
@@ -249,6 +250,7 @@ function M.create(text, font, settings)
 	settings.position = settings.position or V3_ZERO
 	settings.line_spacing = settings.line_spacing or 1
 	settings.image_pixel_grid_snap = settings.image_pixel_grid_snap or false
+	settings.scale = settings.scale or 1
 
 	-- default settings for a word
 	-- will be assigned to each word unless tags override the values
@@ -275,7 +277,7 @@ function M.create(text, font, settings)
 		local font_for_word = get_font(word, settings.fonts)
 
 		-- create node and get metrics
-		word.node, word.metrics = create_node(word, settings.parent, font_for_word)
+		word.node, word.metrics = create_node(word, settings.parent, font_for_word,settings.scale)
 
 		-- assign layer
 		local layer = get_layer(word, settings.layers)

@@ -39,10 +39,8 @@ function IntroLine:initialize(world)
 		while SM.MANAGER.co do coroutine.yield() end
 		local l = world.locale
 		local dialog = {
-			{text = l.TASK_1_TEXT,co = coroutine.create(function()
-
-			end)},
-			{text = l.TASK_1_TEXT_2}
+			{text = l.TASK_1_TEXT, name = l.NAME_AI},
+			{text = l.TASK_1_TEXT_2,  name = l.NAME_AI, a1 = {text = l.TASK_1_TEXT_2_A_1}, a2= {text = l.TASK_1_TEXT_2_A_2} }
 		}
 
 		SM.show("TextModal",{dialog = dialog},{popup = true})

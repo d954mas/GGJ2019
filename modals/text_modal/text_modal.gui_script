@@ -3,6 +3,7 @@ local SM = require "Jester.jester"
 local RichText = require "richtext.richtext"
 local TextSettings = require "world.text_settings"
 local GUI = require "gooey.themes.dirtylarry.dirtylarry"
+local WORLD = require "world.world"
 
 ---@class SelfTextModal
 
@@ -16,11 +17,41 @@ local function set_text(self,text)
 	self.text = RichText.create(text,"Roboto", self.text_settings)
 end
 
+local function set_name(self,text)
+	if self.name then
+		for _,w in ipairs(self.name) do
+			gui.delete_node(w.node)
+		end
+	end
+	self.name = RichText.create(text,"Roboto", self.name_settings)
+end
+
+local function set_richtext(self,name, settings, text)
+	if self[name] then
+		for _,w in ipairs(self[name]) do
+			gui.delete_node(w.node)
+		end
+	end
+	self[name] = RichText.create(text,"Roboto", settings)
+end
+
 ---@param self SelfTextModal
-local function show_next_page(self)
-	self.page = self.page + 1
-	local page = self.dialog[self.page]
-	if page then set_text(self,page.text)
+local function show_page(self, idx)
+	self.page_idx = idx or self.page_idx + 1
+	local page = self.dialog[self.page_idx]
+	self.page = page
+	if page then
+		set_text(self,page.text)
+		set_name(self,page.name)
+		gui.play_flipbook(self.portrait_img,WORLD.locale:get_portrait(page.name))
+		gui.set_enabled(self.btn_answer_1, page.a1,self.a1_settings,page.a1)
+		gui.set_enabled(self.btn_answer_2, page.a2)
+		gui.set_enabled(self.btn_answer_3, page.a3)
+		if page.a1 then set_richtext(self, "a1",self.a1_settings,page.a1.text) end
+		if page.a2 then set_richtext(self, "a2",self.a2_settings,page.a2.text) end
+		if page.a3 then set_richtext(self, "a3",self.a3_settings,page.a3.text) end
+
+		gui.set_enabled(self.btn_ok,not (page.a1 or page.a2 or page.a3))
 	else
 		SM.back()
 	end
@@ -34,12 +65,26 @@ end
 ---@param self SelfTextModal
 function init(self)
 	gui.set_render_order(2)
-	self.title_lbl = gui.get_node("lbl_title")
+	self.name_lbl = gui.get_node("lbl_name")
 	self.text_lbl = gui.get_node("lbl_text")
 	self.root = gui.get_node("root")
 	self.btn_ok = gui.get_node("btn_ok/bg")
+	self.btn_answer_1 = gui.get_node("btn_answer_1/bg")
+	self.btn_answer_1_lbl = gui.get_node("btn_answer_1/label")
+	self.btn_answer_2 = gui.get_node("btn_answer_2/bg")
+	self.btn_answer_2_lbl = gui.get_node("btn_answer_2/label")
+	self.btn_answer_3 = gui.get_node("btn_answer_3/bg")
+	self.btn_answer_3_lbl = gui.get_node("btn_answer_3/label")
+	self.portrait_img = gui.get_node("portrait")
 
-	self.text_settings = TextSettings.base_left({parent = self.text_lbl,width = 500})
+	self.text_settings = TextSettings.base_left({parent = self.text_lbl,width = 450 / gui.get_scale(self.text_lbl).x})
+	self.name_settings = TextSettings.base_center({parent = self.name_lbl,width = 450/ gui.get_scale(self.name_lbl).x})
+	self.a1_settings = TextSettings.base_center({parent = self.btn_answer_1_lbl,width = 450/ gui.get_scale(self.btn_answer_1_lbl).x,
+												position = vmath.vector3(0,25,0)})
+	self.a2_settings = TextSettings.base_center({parent = self.btn_answer_2_lbl,width = 450/ gui.get_scale(self.btn_answer_2_lbl).x,
+												 position = vmath.vector3(0,25,0)})
+	self.a3_settings = TextSettings.base_center({parent = self.btn_answer_3_lbl,width = 450/ gui.get_scale(self.btn_answer_3_lbl).x,
+												 position = vmath.vector3(0,25,0)})
 	COMMON.INPUT.acquire()
 
 end
@@ -53,9 +98,9 @@ end
 ---@param self SelfTextModal
 function on_message(self, message_id, message, sender)
     if message_id == hash("show") then
-		self.page = 0
+		self.page_idx = 0
 		self.dialog = COMMON.GLOBAL.text_modal_input.dialog
-		show_next_page(self)
+		show_page(self)
     end
 end
 ---@param self SelfTextModal
@@ -66,7 +111,16 @@ function on_input(self, action_id, action)
 			--SM.back()
 		--end
 		GUI.button("btn_ok", action_id, action, function ()
-			show_next_page(self)
+			show_page(self)
+		end)
+		GUI.button("btn_answer_1", action_id, action, function ()
+			show_page(self, self.page.a1.page)
+		end)
+		GUI.button("btn_answer_2", action_id, action, function ()
+			show_page(self, self.page.a2.page)
+		end)
+		GUI.button("btn_answer_3", action_id, action, function ()
+			show_page(self, self.page.a3.page)
 		end)
 	end
 end
