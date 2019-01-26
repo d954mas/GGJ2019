@@ -47,12 +47,17 @@ function update(self, dt)
 
 	if self.task_title ~=  WORLD.tasks:get_current():get_title() then
 		self.task_title  =  WORLD.tasks:get_current():get_title()
-		RichText.create(self.task_title,"Roboto",self.task_title_settings)
+		for _,w in ipairs(self.title_words or {})do
+			gui.delete_node(w.node)
+		end
+		self.title_words = RichText.create(self.task_title,"Roboto",self.task_title_settings)
 	end
 	if self.task_description ~=  WORLD.tasks:get_current():get_description() then
 		self.task_description = WORLD.tasks:get_current():get_description()
-		print("deskription:" .. self.task_description)
-		RichText.create(self.task_description,"Roboto",self.task_description_settings)
+		for _,w in ipairs(self.description_words or {})do
+			gui.delete_node(w.node)
+		end
+		self.description_words = RichText.create(self.task_description,"Roboto",self.task_description_settings)
 	end
 	--gui.set_text(self.task_description_lbl,WORLD.tasks:get_current():get_description())
 
