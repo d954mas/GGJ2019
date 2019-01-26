@@ -1,0 +1,30 @@
+local SPEED = 8
+
+go.property("max_value",0)
+go.property("movement_scale",1)
+go.property("looped",false)
+go.property("start_loop_value",0)
+go.property("alpha",1)
+go.property("start",0)
+function init(self)
+    self.pos = go.get_position()
+    self.pos.x = -self.start
+end
+
+function update(self, dt)
+    print(self.pos.x)
+    self.pos.x = self.pos.x - SPEED * dt * self.movement_scale
+    if self.max_value ~= 0 and -self.pos.x > self.max_value then
+        self.pos.x = - self.max_value
+    end
+
+    if self.looped and self.start_loop_value ~= 0 then
+        if -self.pos.x > self.start_loop_value then
+            self.pos.x = self.start_loop_value + self.pos.x
+        end    
+    end
+    go.set_position(self.pos)
+    go.set("#sprite1","tint.w",self.alpha)
+    go.set("#sprite2","tint.w",self.alpha)
+    go.set("#sprite3","tint.w",self.alpha)
+end
