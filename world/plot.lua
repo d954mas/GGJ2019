@@ -33,10 +33,19 @@ end
 ---@class IntroLine:PlotLine
 local IntroLine = COMMON.class("IntroLine",Line)
 
-function IntroLine:initialize()
+---@param world World
+function IntroLine:initialize(world)
 	self.co = function()
 		while SM.MANAGER.co do coroutine.yield() end
-		SM.show("TextModal",{title = "Crashed"},{popup = true})
+		local l = world.locale
+		local dialog = {
+			{text = l.TASK_1_TEXT,co = coroutine.create(function()
+
+			end)},
+			{text = l.TASK_1_TEXT_2}
+		}
+
+		SM.show("TextModal",{dialog = dialog},{popup = true})
 		self:wait_text_modal()
 	end
 end
@@ -48,8 +57,8 @@ end
 ---@param world World
 function M:initialize(world)
     self.lines = {
-		IntroLine(),
-		Line()
+		IntroLine(world),
+		Line(world)
 	}
 	self.line_idx = 0
 	self:next_line()

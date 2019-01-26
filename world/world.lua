@@ -7,6 +7,7 @@ local BUILDINGS = require "world.buildings"
 local SM = require "Jester.jester"
 local TASKS = require "world.tasks"
 local PLOT = require "world.plot"
+local LOCALE = require "world.locale"
 
 ---@class World:Observable
 local M = COMMON.class("World")
@@ -44,6 +45,7 @@ function M:initialize()
 	SYSTEMS.init_systems(self.ecs_world)
 	self.tasks = TASKS.new_tasks()
 	self.plot = PLOT(self)
+	self.locale = LOCALE()
 end
 
 

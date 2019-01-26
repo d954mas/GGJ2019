@@ -8,6 +8,7 @@ function Scene:initialize()
   --  self.msg_receiver = COMMON.MSG()
 end
 
+
 function Scene:on_show(input)
     COMMON.GLOBAL.text_modal_input = input
 end

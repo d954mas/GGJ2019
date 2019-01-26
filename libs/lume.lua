@@ -761,6 +761,21 @@ function lume.color(str, mul)
   return r * mul, g * mul, b * mul, a * mul
 end
 
+function lume.merge_table(t1,t2)
+    for k,v in pairs(t2) do
+      if type(v) == "table" then
+        if type(t1[k] or false) == "table" then
+          lume.merge_table(t1[k] or {}, t2[k] or {})
+        else
+          t1[k] = v
+        end
+      else
+        t1[k] = v
+      end
+    end
+    return t1
+end
+
 
 function lume.rgba(color)
   local a = math_floor((color / 16777216) % 256)
