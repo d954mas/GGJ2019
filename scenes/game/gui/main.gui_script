@@ -8,6 +8,7 @@ function init(self)
 	self.energy_lbl = gui.get_node("energy_lbl")
 	self.ore_lbl = gui.get_node("ore_lbl")
 	self.steel_lbl = gui.get_node("steel_lbl")
+	self.tech_lbl = gui.get_node("tech_lbl")
 end
 
 ---@param self SelfMainG
@@ -18,6 +19,7 @@ function update(self, dt)
 	gui.set_text(self.energy_lbl,"Energy:" .. WORLD.resources.energy)
 	gui.set_text(self.ore_lbl,"Ore:" .. WORLD.resources.ore)
 	gui.set_text(self.steel_lbl,"Steel:" .. WORLD.resources.steel)
+	gui.set_text(self.tech_lbl,"Tech:" .. WORLD.resources.tech)
 end
 ---@param self SelfMainG
 function on_message(self, message_id, message, sender)

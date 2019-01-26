@@ -352,13 +352,17 @@ the Software, and to permit persons to whom the Software is furnished to do so,
 
     --- Creates a new System or System class from the supplied table. If `table` is
     -- nil, creates a new table.
+    ---@return ECSSystem
     function tiny.system(table)
         table = table or {}
         table[systemTableKey] = true
         return table
     end
 
-    --- Creates a new Processing System or Processing System class. Processing
+
+---@class ECSSystem
+---@field world ECSWorld
+    -- Creates a new Processing System or Processing System class. Processing
     -- Systems process each entity individual, and are usually what is needed.
     -- Processing Systems have three extra callbacks besides those inheritted from
     -- vanilla Systems.
@@ -370,6 +374,7 @@ the Software, and to permit persons to whom the Software is furnished to do so,
     -- Processing Systems have their own `update` method, so don't implement a
     -- a custom `update` callback for Processing Systems.
     -- @see system
+    ---@return ECSSystem
     function tiny.processingSystem(table)
         table = table or {}
         table[systemTableKey] = true
@@ -384,6 +389,7 @@ the Software, and to permit persons to whom the Software is furnished to do so,
     -- careful if defining a custom callback. However, for processing the sorted
     -- entities, consider `tiny.sortedProcessingSystem(table)`.
     -- @see system
+---@return ECSSystem
     function tiny.sortedSystem(table)
         table = table or {}
         table[systemTableKey] = true
@@ -397,6 +403,7 @@ the Software, and to permit persons to whom the Software is furnished to do so,
     -- @see system
     -- @see processingSystem
     -- @see sortedSystem
+    ---@return ECSSystem
     function tiny.sortedProcessingSystem(table)
         table = table or {}
         table[systemTableKey] = true
