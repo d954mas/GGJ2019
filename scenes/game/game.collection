@@ -116,7 +116,7 @@ embedded_instances {
   "  }\n"
   "  properties {\n"
   "    id: \"movement_scale\"\n"
-  "    value: \"0.6\"\n"
+  "    value: \"0.4\"\n"
   "    type: PROPERTY_TYPE_NUMBER\n"
   "  }\n"
   "  properties {\n"
@@ -203,7 +203,7 @@ embedded_instances {
   ""
   position {
     x: 0.0
-    y: 0.0
+    y: -200.0
     z: 0.0
   }
   rotation {
@@ -323,7 +323,7 @@ embedded_instances {
   ""
   position {
     x: 0.0
-    y: 10.0
+    y: 0.0
     z: 0.02
   }
   rotation {
@@ -356,7 +356,7 @@ embedded_instances {
   "  }\n"
   "  properties {\n"
   "    id: \"movement_scale\"\n"
-  "    value: \"0.9\"\n"
+  "    value: \"0.6\"\n"
   "    type: PROPERTY_TYPE_NUMBER\n"
   "  }\n"
   "  properties {\n"
@@ -443,7 +443,7 @@ embedded_instances {
   ""
   position {
     x: 0.0
-    y: -10.0
+    y: -100.0
     z: 0.01
   }
   rotation {

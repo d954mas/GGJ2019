@@ -5,7 +5,7 @@ instances {
   position {
     x: -144.0
     y: 54.0
-    z: 0.0
+    z: 0.02
   }
   rotation {
     x: 0.0
@@ -33,7 +33,7 @@ instances {
   position {
     x: 29.0
     y: 54.0
-    z: 0.0
+    z: 0.02
   }
   rotation {
     x: 0.0
@@ -61,7 +61,7 @@ instances {
   position {
     x: 182.0
     y: 0.0
-    z: 0.0
+    z: 0.02
   }
   rotation {
     x: 0.0
@@ -89,7 +89,7 @@ instances {
   position {
     x: 31.0
     y: -68.0
-    z: 0.0
+    z: 0.02
   }
   rotation {
     x: 0.0
@@ -117,7 +117,7 @@ instances {
   position {
     x: -145.0
     y: -75.0
-    z: 0.0
+    z: 0.02
   }
   rotation {
     x: 0.0
@@ -216,7 +216,7 @@ embedded_instances {
   position {
     x: 0.0
     y: 0.0
-    z: -0.01
+    z: 0.01
   }
   rotation {
     x: 0.0
