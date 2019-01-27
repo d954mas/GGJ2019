@@ -7,7 +7,7 @@ local M = COMMON.class("Plot")
 local Line = COMMON.class("Line")
 
 ---@class PlotLine
-function Line:initialize()
+function Line:initialize(world)
 	self.co = function() end
 end
 
@@ -58,10 +58,34 @@ function IntroLine:check()
 	return true
 end
 
+---@class OreLine:PlotLine
+local OreLine = COMMON.class("OreLine",Line)
+
+---@param world World
+function OreLine:initialize(world)
+	self.world = world
+	self.co = function()
+		while SM.MANAGER.co do coroutine.yield() end
+		local l = world.locale
+		local dialog = {
+			{text = l.TASK_2_TEXT, name = l.NAME_AI, a1 = {text = l.TASK_2_A1}},
+		}
+		SM.show("TextModal",{dialog = dialog},{popup = SM.MANAGER.stack:peek()._name ~= "SlotModal"})
+		self:wait_text_modal()
+		world.tasks:skip_task()
+		world.buildings[2].state = world.buildings[2].STATES.NOT_BUILD
+	end
+end
+
+function OreLine:check()
+	return self.world.tasks.current == 2 and self.world.tasks:get_current():check()
+end
+
 ---@param world World
 function M:initialize(world)
     self.lines = {
 		IntroLine(world),
+		OreLine(world),
 		Line(world)
 	}
 	self.line_idx = 0

@@ -32,7 +32,7 @@ function Building:initialize(world)
 	self.level = 0
 	self.exp = 0
 	self.cost = {}
-	self.hp_lose_speed = 0.05
+	self.hp_lose_speed = 0.08
 	self.levels = {
 		[0] = {{type = "energy",n = 1},{type = "ore",n = 1}},
 		[1] = {{type = "energy",n = 1},{type = "ore",n = -1}},
@@ -123,7 +123,7 @@ function Building:on_time(world)
 			world["change_" ..res](world,n)
 		end
 	end
-	self.e.hp = self.e.hp - 0.01
+	--self.e.hp = self.e.hp - 0.01
 end
 
 function Building:on_touch(slot)
@@ -137,8 +137,7 @@ function Building:on_touch(slot)
 	end
 end
 
----@class FactoryBuilding:Building
-local Factory = COMMON.class("Factory",Building)
+
 
 ---@class LabBuilding:Building
 local Lab = COMMON.class("Lab",Building)
@@ -166,8 +165,43 @@ function Generator:initialize(world)
 	}
 end
 
+---@class OreBuilding:Building
+local Ore = COMMON.class("Ore",Building)
+
+function Ore:initialize(world)
+	Building.initialize(self,world)
+	self.e.total_time = 4
+	self.levels = {
+		[0] = {{type = "energy",n = -2},{type = "ore",n = 3}},
+		[1] = {{type = "energy",n = -4},{type = "ore",n = 4}},
+		[2] = {{type = "energy",n = -6},{type = "ore",n = 5}},
+		[3] = {{type = "energy",n = -8},{type = "ore",n = 6}},
+		[4] = {{type = "energy",n = -10},{type = "ore",n = 7}},
+		[5] = {{type = "energy",n = -12},{type = "ore",n = 8}},
+		[6] = {{type = "energy",n = -14},{type = "ore",n = 9}},
+	}
+end
+
+---@class FactoryBuilding:Building
+local Factory = COMMON.class("Factory",Building)
+
+
+function Factory:initialize(world)
+	Building.initialize(self,world)
+	self.e.total_time = 15
+	self.levels = {
+		[0] = {{type = "energy",n = -20},{type = "ore",n = -30},{type = "steel",n = 1}},
+		[1] = {{type = "energy",n = -20},{type = "ore",n = -30},{type = "steel",n = 2}},
+		[2] = {{type = "energy",n = -25},{type = "ore",n = -40},{type = "steel",n = 3}},
+		[3] = {{type = "energy",n = -25},{type = "ore",n = -40},{type = "steel",n = 4}},
+		[4] = {{type = "energy",n = -30},{type = "ore",n = -40},{type = "steel",n = 5}},
+		[5] = {{type = "energy",n = -30},{type = "ore",n = -40},{type = "steel",n = 6}},
+		[6] = {{type = "energy",n = -30},{type = "ore",n = -50},{type = "steel",n = 7}},
+	}
+end
+
 M.generator = Generator
-M.ore = Building
+M.ore = Ore
 M.factory = Factory
 M.lab = Lab
 

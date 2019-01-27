@@ -7,7 +7,7 @@ local SM = require "Jester.jester"
 local Task = COMMON.class("Task")
 ---@param world World
 function Task:initialize(title, description,world)
-    self.title = assert(title)
+    self.title = title or ""
     self.description = description
     self.world = world
 end
@@ -42,7 +42,7 @@ function ComplexTask:check()
     for _,task in ipairs(self.tasks) do
         checked = checked and task:check()
     end
-    return false
+    return checked
 end
 
 function ComplexTask:get_description()
@@ -94,9 +94,18 @@ function Task1:initialize(world)
         end
         t1_compleated = check
         return t1_compleated  end))
-    self:add_task(CallbackTask("",world.locale.TASK_1_DESCRIPTION_2,world,function() return self.world.resources.energy >=100 end))
+    self:add_task(CallbackTask("",world.locale.TASK_1_DESCRIPTION_2,world,function() return self.world.resources.energy >=50 end))
 end
 
+---@class Task2:ComplexTask
+local Task2 = COMMON.class("Task2",ComplexTask)
+
+function Task2:initialize(world)
+    ComplexTask.initialize(self,world.locale.TASK_2_NAME,world)
+    self:add_task(CallbackTask("",world.locale.TASK_2_DESCRIPTION_1,world,function()
+        return self.world.buildings[2].state == self.world.buildings[2].STATES.BUILD end))
+    self:add_task(CallbackTask("",world.locale.TASK_2_DESCRIPTION_2,world,function() return self.world.resources.ore >=50 end))
+end
 
 
 ---endregion
@@ -116,8 +125,8 @@ end
 
 function Tasks:update()
     local ct = self:get_current()
-    if ct and ct:check() then
-      --  self.current = self.current + 1
+    if ct and ct:check() and not ct.blocking then
+      -- self.current = self.current + 1
     end
 
 end
@@ -143,6 +152,7 @@ function M.new_tasks(world)
     local tasks = Tasks()
     tasks:add_task(EmptyTask(world))
     tasks:add_task(Task1(world))
+    tasks:add_task(Task2(world))
     return tasks
 end
 

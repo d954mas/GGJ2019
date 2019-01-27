@@ -23,7 +23,7 @@ function M:initialize(eng)
 	--region dialog1
 	self.TASK_1_NAME = eng and "" or "Калибровка реактора"
 	self.TASK_1_DESCRIPTION_1 = eng and "" or "Установить реактор"
-	self.TASK_1_DESCRIPTION_2 = eng and "" or "Добыть 100 <img=gui:energy_icon/>"
+	self.TASK_1_DESCRIPTION_2 = eng and "" or "Добыть 50 <img=gui:energy_icon/>"
 	self.TASK_1_TEXT = eng and "" or "Внештатная ситуация. Множественные повреждения корпуса.Выполняю аварийную посадку." .. "Посадка успешна."
 	self.TASK_1_TEXT_2 = eng and "" or "Согласно директиве e1286 выполняю прерывание криосна.5, 4, 3, 2, 1.Прерывание выполнено. Показатели в пределах нормы."
 			.. "Корабль привестует капитан. Иницирую передачу прав "
@@ -55,7 +55,11 @@ function M:initialize(eng)
 	"Проводи ремонт<img=gui:repair_icon/>.Улучшай здание <img=gui:upgrade_icon/>.Ускоряй его работу<img=gui:stopwatch_icon/> При работе твои инженерные навыки <img=gui:tech_icon/> улучшаются, они тебе еще пригодятся"
 	self.M3_HELP_A1 = "Понятно"
 
-	self.TASK_1_TEXT = self.M3_HELP_TEXT
+    self.TASK_2_TEXT = eng and "" or "Отличная работа.Энергии достаточно для запуска шахты.При своей работе шахтеры тратят энергию, внимательно следи за ее количсетвом"
+    self.TASK_2_A1 = eng and "" or "Вперед.В шахты."
+
+    self.TASK_2_DESCRIPTION_1 = eng and "" or "Запусти шахты."
+    self.TASK_2_DESCRIPTION_2 = eng and "" or "Добыть 50 <img=gui:ore_icon/>"
 end
 
 
