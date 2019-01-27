@@ -1,4 +1,5 @@
 local COMMON = require "libs.common"
+local SM = require "Jester.jester"
 --region tasks
 
 --region Task class
@@ -85,7 +86,14 @@ local Task1 = COMMON.class("Task1",ComplexTask)
 
 function Task1:initialize(world)
     ComplexTask.initialize(self,world.locale.TASK_1_NAME,world)
-    self:add_task(CallbackTask("",world.locale.TASK_1_DESCRIPTION_1,world,function() return self.world.buildings[1].state == self.world.buildings[1].STATES.BUILD end))
+    local t1_compleated = false
+    self:add_task(CallbackTask("",world.locale.TASK_1_DESCRIPTION_1,world,function()
+        local check = self.world.buildings[1].state == self.world.buildings[1].STATES.BUILD
+        if not t1_compleated and check then
+            SM.show("SlotModal",{slot = 1},{popup = true})
+        end
+        t1_compleated = check
+        return t1_compleated  end))
     self:add_task(CallbackTask("",world.locale.TASK_1_DESCRIPTION_2,world,function() return self.world.resources.energy >=100 end))
 end
 
