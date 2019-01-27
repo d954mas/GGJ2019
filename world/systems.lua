@@ -6,6 +6,7 @@ local M = {}
 ---@field total_time number
 ---@field time_progress number
 ---@field on_time function
+---@field hp number
 
 
 local tick_system = ECS.processingSystem()
@@ -13,7 +14,9 @@ tick_system.filter = ECS.requireAll("time", "total_time", "time_progress")
 
 ---@param e ECSEntity
 function tick_system:process(e, dt)
-	e.time = e.time + dt
+	if not e.hp or e.hp > 0 then
+		e.time = e.time + dt
+	end
 	if e.time >= e.total_time then
 		e.time = 0
 		e.time_progress = 1

@@ -34,7 +34,7 @@ function Bar:set_progress(progress)
 	self.background_size.x = self.background_max_width * percents
 	gui.set_size(self.background, self.background_size)
 	if self.show_text then
-		gui.set_text(self.label, progress .. "/" .. self.max_value)
+	--	gui.set_text(self.label, progress .. "/" .. self.max_value)
 	end
 end
 

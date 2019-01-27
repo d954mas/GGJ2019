@@ -37,6 +37,21 @@ images {
 images {
   image: "/assets/images/gui/cross.png"
 }
+images {
+  image: "/assets/images/gui/bar.png"
+}
+images {
+  image: "/assets/images/gui/bar_red.png"
+}
+images {
+  image: "/assets/images/gui/bar_blue.png"
+}
+images {
+  image: "/assets/images/gui/bar_green.png"
+}
+images {
+  image: "/assets/images/gui/bar_yellow.png"
+}
 margin: 0
 extrude_borders: 2
 inner_padding: 0

@@ -18,6 +18,7 @@ function Building:initialize()
 	self.state = STATES.HIDE
 	self.e = {total_time = 10,time = 0,time_progress = 0}
 	self.e.on_time = function(e,world) if self.state == STATES.BUILD then self:on_time(world) end end
+	self.e.hp = 1
 	self.cost = {}
 	--self.state = self.static.states.HIDE
 end
@@ -30,6 +31,7 @@ end
 ---@param world World
 function Building:on_time(world)
 	world:change_ore(5)
+	self.e.hp = self.e.hp - 0.01
 end
 
 function Building:on_touch(slot)
@@ -79,6 +81,7 @@ end
 ---@param world World
 function Generator:on_time(world)
 	world:change_energy(5)
+	self.e.hp = self.e.hp - 0.01
 end
 
 M.generator = Generator
