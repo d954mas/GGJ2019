@@ -11,28 +11,64 @@ local STATES = {
 	HIDE = 1, NOT_BUILD = 2, BUILD = 3
 }
 
---Building.static = static
+local LEVELS = {
+	[1] = 5,
+	[2] = 8,
+	[3] = 12,
+	[4] = 16,
+	[5] = 20,
+	[6] = 25,
+}
 
-function Building:initialize()
+--Building.static = static
+---@param world World
+function Building:initialize(world)
+	assert(world)
 	self.STATES = STATES
 	self.state = STATES.HIDE
 	self.e = {total_time = 10,time = 0,time_progress = 0}
 	self.e.on_time = function(e,world) if self.state == STATES.BUILD then self:on_time(world) end end
 	self.e.hp = 1
-	self.level = 1
+	self.level = 0
 	self.exp = 0
 	self.cost = {}
 	self.hp_lose_speed = 0.05
-	--self.state = self.static.states.HIDE
+	self.levels = {
+		[0] = {{type = "energy",n = 1},{type = "ore",n = 1}},
+		[1] = {{type = "energy",n = 1},{type = "ore",n = -1}},
+		[2] = {{type = "energy",n = 2},{type = "ore",n = -1}},
+		[3] = {{type = "energy",n = 3},{type = "ore",n = -1}},
+		[4] = {{type = "energy",n = 4},{type = "ore",n = -1}},
+		[5] = {{type = "energy",n = 5},{type = "ore",n = -1}},
+		[6] = {{type = "energy",n = 6},{type = "ore",n = -1}},
+	}
+	self.world = world
+end
+
+function Building:get_values()
+	local level = self.level
+	local data = self.levels[level]
+	return data
 end
 
 function Building:add_exp(points)
 	local exp = points
 	self.exp = self.exp + exp
+	while LEVELS[self.level+1] and  self.exp >= LEVELS[self.level+1] do
+		self.level = self.level + 1
+		self.exp = LEVELS[self.level+1] and self.exp - LEVELS[self.level+1] or 0
+	end
 end
 function Building:add_hp(points)
 	local hp = points/3 * 0.2
 	self.e.hp = math.max(self.e.hp+hp,1)
+end
+
+function Building:get_next_exp()
+	local level = LEVELS[self.level+1]
+	if level then
+		return level
+	else return -1 end
 end
 function Building:add_time(points)
 	self.e.time = self.e.time + points*1
@@ -43,6 +79,25 @@ function Building:set_state(state)
 	self.e.time = 0
 end
 
+function Building:get_description()
+	local values = self:get_values()
+	local str = ""
+	self.ENERGY = "%d<img=gui:energy_icon/>"
+	self.ORE = "%d<img=gui:ore_icon/>"
+	self.STEEL = "%d<img=gui:steel_icon/>"
+	self.TECH = "%d<img=gui:tech_icon/>"
+	local map = {
+		energy = self.world.locale.ENERGY,
+		ore = self.world.locale.ORE,
+		steel = self.world.locale.STEEL,
+		tech = self.world.locale.TECH,
+	}
+	for _,v in ipairs(values) do
+		str = str .. "  " .. string.format(map[v.type],v.n)
+	end
+	return str
+end
+
 function Building:update(dt)
 	if self.state == STATES.BUILD then
 		self.e.hp = math.max(0,self.e.hp - self.hp_lose_speed * dt)
@@ -51,7 +106,24 @@ end
 
 ---@param world World
 function Building:on_time(world)
-	world:change_ore(5)
+	local values = self:get_values()
+	local can_spend = true
+	for _,v in ipairs(values) do
+		local res, n = v.type, v.n
+		if n<0 then
+			if world.resources[res] < -n then can_spend = false end
+		end
+	end
+	if not can_spend then
+		self.e.time = self.e.total_time
+		self.e.time_progress = 1
+	else
+		for _,v in ipairs(values) do
+			local res, n = v.type, v.n
+			world["change_" ..res](world,n)
+		end
+	end
+	self.e.hp = self.e.hp - 0.01
 end
 
 function Building:on_touch(slot)
@@ -67,41 +139,31 @@ end
 
 ---@class FactoryBuilding:Building
 local Factory = COMMON.class("Factory",Building)
----@param world World
-function Factory:on_time(world)
-	if world.resources.ore > 10 then
-		world:change_ore(-20)
-		world:change_steel(5)
-	else
-		self.e.time = self.e.total_time
-	end
-end
 
 ---@class LabBuilding:Building
 local Lab = COMMON.class("Lab",Building)
 
-function Lab:initialize()
-	Building.initialize(self)
+function Lab:initialize(world)
+	Building.initialize(self,world)
 	self.e.total_time = 1
 end
 
----@param world World
-function Lab:on_time(world)
-	world:change_tech(6)
-end
 
 ---@class GeneratorBuilding:Building
 local Generator = COMMON.class("Generator",Building)
 
-function Generator:initialize()
-	Building.initialize(self)
+function Generator:initialize(world)
+	Building.initialize(self,world)
 	self.e.total_time = 4
-end
-
----@param world World
-function Generator:on_time(world)
-	world:change_energy(5)
-	self.e.hp = self.e.hp - 0.01
+	self.levels = {
+		[0] = {{type = "energy",n = 5}},
+		[1] = {{type = "energy",n = 8}},
+		[2] = {{type = "energy",n = 12}},
+		[3] = {{type = "energy",n = 15}},
+		[4] = {{type = "energy",n = 20}},
+		[5] = {{type = "energy",n = 25}},
+		[6] = {{type = "energy",n = 30}},
+	}
 end
 
 M.generator = Generator

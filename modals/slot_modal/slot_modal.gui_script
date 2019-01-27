@@ -2,8 +2,20 @@ local COMMON = require "libs.common"
 local SM = require "Jester.jester"
 local WORLD = require "world.world"
 local GUI = require "gui.gui"
+local TEXT_SETTINGS = require "world.text_settings"
+local RichText = require "richtext.richtext"
 
 ---@class SelfSlotModalGui
+
+local function set_richtext(self,name, settings, text)
+	name = "richtext_" .. name
+	if self[name] then
+		for _,w in ipairs(self[name]) do
+			gui.delete_node(w.node)
+		end
+	end
+	self[name] = RichText.create(text,"Roboto", settings)
+end
 
 ---@param self SelfSlotModalGui
 function init(self)
@@ -16,6 +28,8 @@ function init(self)
 	gui.animate(self.root,gui.PROP_SCALE,vmath.vector3(1),gui.EASING_INSINE,0.5,0,function ()
 		COMMON.INPUT.acquire()
 	end)
+
+	self.description_settings = TEXT_SETTINGS.base_center({parent = gui.get_node("description_lbl"),color = vmath.vector3(1)})
 
 	self.hp_bar = GUI.ProgressBar({ root = gui.get_node("hp_bar/bar"), background = gui.get_node("hp_bar/background"),
 									label = gui.get_node("hp_bar/lbl") })
@@ -37,8 +51,9 @@ end
 function update(self, dt)
 	self.hp_bar:set_progress(self.building.e.hp)
 	self.time_bar:set_progress(self.building.e.time/self.building.e.total_time)
-	self.exp_bar:set_progress(0)
+	self.exp_bar:set_progress(self.building:get_next_exp() == -1 and 1 or self.building.exp/self.building:get_next_exp())
 	COMMON.GLOBAL.M3_SCALE = gui.get_scale(self.root)
+	set_richtext(self,"description",self.description_settings,self.building:get_description())
 end
 ---@param self SelfSlotModalGui
 function on_message(self, message_id, message, sender)

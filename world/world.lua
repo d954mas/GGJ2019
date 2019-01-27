@@ -38,7 +38,7 @@ function M:initialize()
 	4)гипердвигатель(строим чтобы долететь до земли)
 	--]]
 	---@type Building[]
-	self.buildings = {BUILDINGS.generator(),BUILDINGS.ore(), BUILDINGS.factory(), BUILDINGS.lab(),BUILDINGS.ore()}
+	self.buildings = {BUILDINGS.generator(self),BUILDINGS.ore(self), BUILDINGS.factory(self), BUILDINGS.lab(self),BUILDINGS.ore(self)}
 	for _,b in ipairs(self.buildings) do
 		self.ecs_world:addEntity(b.e)
 	end

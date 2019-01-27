@@ -2,6 +2,7 @@ local COMMON = require "libs.common"
 COMMON.LOG.set_appname("ggj2019")
 COMMON.LOG.toggle_print()
 COMMON.LOG.override_print()
+math.randomseed(os.time())
 
 local JESTER = require "Jester.jester"
 local STENCIL = require "Jester.stencil.stencil_render"
