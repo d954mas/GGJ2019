@@ -3,10 +3,80 @@
   <component name="ChangeListManager">
     <list default="true" id="3c62f91f-e262-404b-a264-56f876977135" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/world/buildings.lua" beforeDir="false" afterPath="$PROJECT_DIR$/world/buildings.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/world/locale.lua" beforeDir="false" afterPath="$PROJECT_DIR$/world/locale.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/world/plot.lua" beforeDir="false" afterPath="$PROJECT_DIR$/world/plot.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/world/tasks.lua" beforeDir="false" afterPath="$PROJECT_DIR$/world/tasks.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/default.texture_profiles" beforeDir="false" afterPath="$PROJECT_DIR$/default.texture_profiles" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/basic/assets/brickBlue06.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/basic/assets/brickGreen05.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/basic/assets/brickGrey.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/basic/assets/brickRed04.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/basic/assets/brickSpecial01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/basic/assets/brickSpecial02.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/basic/assets/brickSpecial03.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/basic/assets/brickSpecial06.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/basic/assets/brickSpecial07.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/basic/assets/brickSpecial08.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/basic/assets/brickSpecial09.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/basic/assets/brickSpecial10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/basic/assets/brickWhite05.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/basic/assets/brickYellow03.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/basic/basic.atlas" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/basic/basic.collection" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/basic/basic.script" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/basic/brick.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/basic/brick.script" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/examples.collection" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/examples.gui" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/examples.gui_script" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/assets/effects/bubble.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/assets/effects/white_dot.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/assets/effects/white_dot2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/assets/explode.particlefx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/assets/fish/eyes-blue.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/assets/fish/eyes-green.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/assets/fish/eyes-orange.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/assets/fish/eyes-purple.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/assets/fish/eyes-red.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/assets/fish/eyes-starfish.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/assets/fish/eyes-yellow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/assets/fish/fish-blue-h.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/assets/fish/fish-blue-v.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/assets/fish/fish-blue-w.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/assets/fish/fish-blue.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/assets/fish/fish-green-h.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/assets/fish/fish-green-v.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/assets/fish/fish-green-w.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/assets/fish/fish-green.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/assets/fish/fish-orange-h.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/assets/fish/fish-orange-v.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/assets/fish/fish-orange-w.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/assets/fish/fish-orange.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/assets/fish/fish-purple-h.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/assets/fish/fish-purple-v.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/assets/fish/fish-purple-w.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/assets/fish/fish-purple.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/assets/fish/fish-red-h.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/assets/fish/fish-red-v.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/assets/fish/fish-red-w.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/assets/fish/fish-red.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/assets/fish/fish-starfish.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/assets/fish/fish-yellow-h.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/assets/fish/fish-yellow-v.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/assets/fish/fish-yellow-w.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/assets/fish/fish-yellow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/assets/font/Pacifico.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/assets/font/text.font" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/assets/sprites.atlas" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/assets/ui/bg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/assets/ui/button-YES.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/assets/ui/button1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/assets/ui/button_NO.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/board.script" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/color.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/fish.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/fish.script" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/ocean-commotion.collection" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ocean-commotion/type.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game.project" beforeDir="false" afterPath="$PROJECT_DIR$/game.project" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/m3/basic.script" beforeDir="false" afterPath="$PROJECT_DIR$/m3/basic.script" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,8 +98,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/world/tasks.lua">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="104" column="34" selection-start-line="104" selection-start-column="34" selection-end-line="104" selection-end-column="34" />
+            <state relative-caret-position="142">
+              <caret line="101" selection-start-line="101" selection-end-line="101" />
             </state>
           </provider>
         </entry>
@@ -56,7 +126,7 @@
         <entry file="file://$PROJECT_DIR$/world/plot.lua">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="139">
-              <caret line="68" column="30" lean-forward="true" selection-start-line="68" selection-start-column="30" selection-end-line="68" selection-end-column="30" />
+              <caret line="68" column="30" selection-start-line="68" selection-start-column="30" selection-end-line="68" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -92,7 +162,7 @@
         <entry file="jar://$PROJECT_DIR$/../api1_2_145.zip!/api/os.lua">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="117">
-              <caret line="100" column="73" lean-forward="true" selection-start-line="100" selection-start-column="73" selection-end-line="100" selection-end-column="73" />
+              <caret line="100" column="73" selection-start-line="100" selection-start-column="73" selection-end-line="100" selection-end-column="73" />
             </state>
           </provider>
         </entry>
@@ -146,6 +216,7 @@
       <find>SM.MANAGER.</find>
       <find>add_ex</find>
       <find>Ore</find>
+      <find>brick</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -181,7 +252,6 @@
         <option value="$PROJECT_DIR$/modals/text_modal/text_modal.gui_script" />
         <option value="$PROJECT_DIR$/scenes/game/gui/main.gui_script" />
         <option value="$PROJECT_DIR$/world/systems.lua" />
-        <option value="$PROJECT_DIR$/m3/basic.script" />
         <option value="$PROJECT_DIR$/modals/slot_modal/slot_modal.lua" />
         <option value="$PROJECT_DIR$/scenes/game/game_scene.lua" />
         <option value="$PROJECT_DIR$/world/world.lua" />
@@ -190,15 +260,15 @@
         <option value="$PROJECT_DIR$/world/locale.lua" />
         <option value="$PROJECT_DIR$/world/plot.lua" />
         <option value="$PROJECT_DIR$/world/buildings.lua" />
+        <option value="$PROJECT_DIR$/m3/basic.script" />
         <option value="$PROJECT_DIR$/world/tasks.lua" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-2" />
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="y" value="1" />
     <option name="width" value="1351" />
-    <option name="height" value="729" />
+    <option name="height" value="712" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -300,8 +370,7 @@
     <option name="totallyTimeSpent" value="6171000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2" y="1" width="1351" height="729" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="1" width="1351" height="712" extended-state="1" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21477532" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -321,7 +390,7 @@
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32943144" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.050251257" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.4448276" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -674,14 +743,14 @@
     <entry file="jar://$PROJECT_DIR$/../api1_2_145.zip!/api/os.lua">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="117">
-          <caret line="100" column="73" lean-forward="true" selection-start-line="100" selection-start-column="73" selection-end-line="100" selection-end-column="73" />
+          <caret line="100" column="73" selection-start-line="100" selection-start-column="73" selection-end-line="100" selection-end-column="73" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/world/plot.lua">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="139">
-          <caret line="68" column="30" lean-forward="true" selection-start-line="68" selection-start-column="30" selection-end-line="68" selection-end-column="30" />
+          <caret line="68" column="30" selection-start-line="68" selection-start-column="30" selection-end-line="68" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -708,8 +777,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/world/tasks.lua">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="104" column="34" selection-start-line="104" selection-start-column="34" selection-end-line="104" selection-end-column="34" />
+        <state relative-caret-position="142">
+          <caret line="101" selection-start-line="101" selection-end-line="101" />
         </state>
       </provider>
     </entry>

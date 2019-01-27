@@ -27,7 +27,7 @@ end
 
 local function create_spawner(position, type)
 	position.z = -2
-	local id = factory.create("#factory", position, null, { type = type, color = hash("brickGrey") })
+	local id = factory.create("#factory", position, null, { type = type, color = hash("exp_m3") })
 	msg.post(id, "set_parent", { parent_id = go.get_id(), keep_world_transform = 0 })
 	return id, type
 end
