@@ -3,17 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="3c62f91f-e262-404b-a264-56f876977135" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/game/game.atlas" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/game/game.atlas" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game.input_binding" beforeDir="false" afterPath="$PROJECT_DIR$/game.input_binding" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/init_controller.script" beforeDir="false" afterPath="$PROJECT_DIR$/init_controller.script" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/m3/brick.go" beforeDir="false" afterPath="$PROJECT_DIR$/m3/brick.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/m3/brick.script" beforeDir="false" afterPath="$PROJECT_DIR$/m3/brick.script" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scenes/game/go/room/room.gui_script" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/game/go/room/room.gui_script" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scenes/game/gui/main.gui" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/game/gui/main.gui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scenes/game/gui/main.gui_script" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/game/gui/main.gui_script" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scenes/game/go/main_asteroid.collection" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/game/go/main_asteroid.collection" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scenes/game/go/room/room.gui" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/game/go/room/room.gui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/world/buildings.lua" beforeDir="false" afterPath="$PROJECT_DIR$/world/buildings.lua" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/world/locale.lua" beforeDir="false" afterPath="$PROJECT_DIR$/world/locale.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/world/plot.lua" beforeDir="false" afterPath="$PROJECT_DIR$/world/plot.lua" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/world/tasks.lua" beforeDir="false" afterPath="$PROJECT_DIR$/world/tasks.lua" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/world/world.lua" beforeDir="false" afterPath="$PROJECT_DIR$/world/world.lua" afterDir="false" />
     </list>
@@ -25,11 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/world/world.lua">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="96" column="17" selection-start-line="96" selection-start-column="17" selection-end-line="96" selection-end-column="17" />
+            <state relative-caret-position="667">
+              <caret line="87" column="29" selection-start-line="87" selection-start-column="29" selection-end-line="87" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -37,8 +30,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/world/tasks.lua">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="47" selection-end-column="31" />
+            <state relative-caret-position="408">
+              <caret line="126" column="123" selection-start-line="126" selection-start-column="123" selection-end-line="126" selection-end-column="123" />
             </state>
           </provider>
         </entry>
@@ -55,8 +48,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/world/locale.lua">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="70" column="62" lean-forward="true" selection-start-line="70" selection-start-column="62" selection-end-line="70" selection-end-column="62" />
+            <state relative-caret-position="397">
+              <caret line="78" column="56" selection-start-line="78" selection-start-column="56" selection-end-line="78" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -75,6 +68,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="731">
               <caret line="43" selection-start-line="43" selection-end-line="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/world/buildings.lua">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="222">
+              <caret line="160" column="41" lean-forward="true" selection-start-line="160" selection-start-column="41" selection-end-line="160" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -102,15 +104,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="121">
               <caret line="28" column="11" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scenes/game/gui/main.gui_script">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="50" column="67" selection-start-line="50" selection-start-column="67" selection-end-line="50" selection-end-column="67" />
             </state>
           </provider>
         </entry>
@@ -197,14 +190,14 @@
         <option value="$PROJECT_DIR$/modals/slot_modal/slot_modal.gui_script" />
         <option value="$PROJECT_DIR$/m3/basic.script" />
         <option value="$PROJECT_DIR$/m3/brick.script" />
-        <option value="$PROJECT_DIR$/world/buildings.lua" />
         <option value="$PROJECT_DIR$/scenes/game/go/room/room.gui_script" />
         <option value="$PROJECT_DIR$/scenes/game/gui/main.gui_script" />
         <option value="$PROJECT_DIR$/world/plot.lua" />
-        <option value="$PROJECT_DIR$/world/locale.lua" />
-        <option value="$PROJECT_DIR$/world/tasks.lua" />
         <option value="$PROJECT_DIR$/init_controller.script" />
         <option value="$PROJECT_DIR$/world/world.lua" />
+        <option value="$PROJECT_DIR$/world/tasks.lua" />
+        <option value="$PROJECT_DIR$/world/locale.lua" />
+        <option value="$PROJECT_DIR$/world/buildings.lua" />
       </list>
     </option>
   </component>
@@ -642,24 +635,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/world/buildings.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="52" selection-start-line="52" selection-end-line="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scenes/game/gui/main.gui_script">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="50" column="67" selection-start-line="50" selection-start-column="67" selection-end-line="50" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scenes/game/go/room/room.script">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
         </state>
       </provider>
     </entry>
@@ -677,27 +656,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/world/plot.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="138" column="24" lean-forward="true" selection-start-line="138" selection-start-column="24" selection-end-line="138" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/world/locale.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="70" column="62" lean-forward="true" selection-start-line="70" selection-start-column="62" selection-end-line="70" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/world/tasks.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="47" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Jester/jester.lua">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="121">
@@ -712,10 +670,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/scenes/game/go/room/room.script">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/world/tasks.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="126" column="123" selection-start-line="126" selection-start-column="123" selection-end-line="126" selection-end-column="123" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/world/world.lua">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="96" column="17" selection-start-line="96" selection-start-column="17" selection-end-line="96" selection-end-column="17" />
+        <state relative-caret-position="667">
+          <caret line="87" column="29" selection-start-line="87" selection-start-column="29" selection-end-line="87" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/world/locale.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="78" column="56" selection-start-line="78" selection-start-column="56" selection-end-line="78" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/world/plot.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="138" column="24" lean-forward="true" selection-start-line="138" selection-start-column="24" selection-end-line="138" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/world/buildings.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="160" column="41" lean-forward="true" selection-start-line="160" selection-start-column="41" selection-end-line="160" selection-end-column="41" />
         </state>
       </provider>
     </entry>

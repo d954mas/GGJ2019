@@ -94,7 +94,7 @@ function Task1:initialize(world)
         end
         t1_compleated = check
         return t1_compleated  end))
-    self:add_task(CallbackTask("",world.locale.TASK_1_DESCRIPTION_2,world,function() return self.world.resources.energy >=50 end))
+    self:add_task(CallbackTask("",world.locale.TASK_1_DESCRIPTION_2,world,function() return self.world.resources.energy >=20 end))
 end
 
 ---@class Task2:ComplexTask
@@ -104,7 +104,7 @@ function Task2:initialize(world)
     ComplexTask.initialize(self,world.locale.TASK_2_NAME,world)
     self:add_task(CallbackTask("",world.locale.TASK_2_DESCRIPTION_1,world,function()
         return self.world.buildings[2].state == self.world.buildings[2].STATES.BUILD end))
-    self:add_task(CallbackTask("",world.locale.TASK_2_DESCRIPTION_2,world,function() return self.world.resources.ore >=50 end))
+    self:add_task(CallbackTask("",world.locale.TASK_2_DESCRIPTION_2,world,function() return self.world.resources.ore >=40 end))
 end
 
 ---@class Task3:ComplexTask
@@ -114,7 +114,7 @@ function Task3:initialize(world)
     ComplexTask.initialize(self,world.locale.TASK_3_NAME,world)
     self:add_task(CallbackTask("",world.locale.TASK_3_DESCRIPTION_1,world,function()
         return self.world.buildings[3].state == self.world.buildings[3].STATES.BUILD end))
-    self:add_task(CallbackTask("",world.locale.TASK_3_DESCRIPTION_2,world,function() return self.world.resources.steel >=20 end))
+    self:add_task(CallbackTask("",world.locale.TASK_3_DESCRIPTION_2,world,function() return self.world.resources.steel >=6 end))
 end
 
 ---@class Task4:ComplexTask
@@ -124,7 +124,7 @@ function Task4:initialize(world)
     ComplexTask.initialize(self,world.locale.TASK_4_NAME,world)
     self:add_task(CallbackTask("",world.locale.TASK_4_DESCRIPTION_1,world,function()
         return self.world.resources.energy >=80 end))
-    self:add_task(CallbackTask("",world.locale.TASK_4_DESCRIPTION_2,world,function() return self.world.resources.steel >=40 end))
+    self:add_task(CallbackTask("",world.locale.TASK_4_DESCRIPTION_2,world,function() return self.world.resources.steel >=12 end))
     self:add_task(CallbackTask("",world.locale.TASK_4_DESCRIPTION_3,world,function() return self.world.resources.tech >=100 end))
 end
 

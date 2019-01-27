@@ -157,12 +157,12 @@ function Generator:initialize(world)
 	self.e.total_time = 4
 	self.levels = {
 		[0] = {{type = "energy",n = 5}},
-		[1] = {{type = "energy",n = 8}},
-		[2] = {{type = "energy",n = 12}},
-		[3] = {{type = "energy",n = 15}},
-		[4] = {{type = "energy",n = 20}},
-		[5] = {{type = "energy",n = 25}},
-		[6] = {{type = "energy",n = 30}},
+		[1] = {{type = "energy",n = 10}},
+		[2] = {{type = "energy",n = 15}},
+		[3] = {{type = "energy",n = 20}},
+		[4] = {{type = "energy",n = 25}},
+		[5] = {{type = "energy",n = 30}},
+		[6] = {{type = "energy",n = 35}},
 	}
 end
 
@@ -175,11 +175,11 @@ function Ore:initialize(world)
 	self.levels = {
 		[0] = {{type = "energy",n = -2},{type = "ore",n = 3}},
 		[1] = {{type = "energy",n = -4},{type = "ore",n = 4}},
-		[2] = {{type = "energy",n = -6},{type = "ore",n = 5}},
-		[3] = {{type = "energy",n = -8},{type = "ore",n = 6}},
-		[4] = {{type = "energy",n = -10},{type = "ore",n = 7}},
-		[5] = {{type = "energy",n = -12},{type = "ore",n = 8}},
-		[6] = {{type = "energy",n = -14},{type = "ore",n = 9}},
+		[2] = {{type = "energy",n = -4},{type = "ore",n = 5}},
+		[3] = {{type = "energy",n = -6},{type = "ore",n = 6}},
+		[4] = {{type = "energy",n = -6},{type = "ore",n = 7}},
+		[5] = {{type = "energy",n = -7},{type = "ore",n = 8}},
+		[6] = {{type = "energy",n = -7},{type = "ore",n = 9}},
 	}
 end
 
@@ -191,13 +191,13 @@ function Factory:initialize(world)
 	Building.initialize(self,world)
 	self.e.total_time = 15
 	self.levels = {
-		[0] = {{type = "energy",n = -20},{type = "ore",n = -30},{type = "steel",n = 1}},
-		[1] = {{type = "energy",n = -20},{type = "ore",n = -30},{type = "steel",n = 2}},
-		[2] = {{type = "energy",n = -25},{type = "ore",n = -40},{type = "steel",n = 3}},
-		[3] = {{type = "energy",n = -25},{type = "ore",n = -40},{type = "steel",n = 4}},
-		[4] = {{type = "energy",n = -30},{type = "ore",n = -40},{type = "steel",n = 5}},
-		[5] = {{type = "energy",n = -30},{type = "ore",n = -40},{type = "steel",n = 6}},
-		[6] = {{type = "energy",n = -30},{type = "ore",n = -50},{type = "steel",n = 7}},
+		[0] = {{type = "energy",n = -20},{type = "ore",n = -30},{type = "steel",n = 2}},
+		[1] = {{type = "energy",n = -20},{type = "ore",n = -30},{type = "steel",n = 3}},
+		[2] = {{type = "energy",n = -25},{type = "ore",n = -30},{type = "steel",n = 3}},
+		[3] = {{type = "energy",n = -25},{type = "ore",n = -30},{type = "steel",n = 4}},
+		[4] = {{type = "energy",n = -25},{type = "ore",n = -30},{type = "steel",n = 4}},
+		[5] = {{type = "energy",n = -25},{type = "ore",n = -30},{type = "steel",n = 5}},
+		[6] = {{type = "energy",n = -25},{type = "ore",n = -30},{type = "steel",n = 5}},
 	}
 end
 

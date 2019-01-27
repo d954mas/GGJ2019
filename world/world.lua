@@ -85,7 +85,7 @@ function M:update(dt, no_save)
 	for _,b in ipairs(self.buildings) do
 		b:update(dt)
 	end
-	self.days = self.days + 365/60/2 * dt
+	self.days = self.days + 2 * dt
 end
 
 
