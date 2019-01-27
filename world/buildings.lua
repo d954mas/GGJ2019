@@ -19,9 +19,23 @@ function Building:initialize()
 	self.e = {total_time = 10,time = 0,time_progress = 0}
 	self.e.on_time = function(e,world) if self.state == STATES.BUILD then self:on_time(world) end end
 	self.e.hp = 1
+	self.level = 1
+	self.exp = 0
 	self.cost = {}
 	self.hp_lose_speed = 0.05
 	--self.state = self.static.states.HIDE
+end
+
+function Building:add_exp(points)
+	local exp = points
+	self.exp = self.exp + exp
+end
+function Building:add_hp(points)
+	local hp = points/3 * 0.2
+	self.e.hp = math.max(self.e.hp+hp,1)
+end
+function Building:add_time(points)
+	self.e.time = self.e.time + points*1
 end
 
 function Building:set_state(state)

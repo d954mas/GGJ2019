@@ -1,6 +1,7 @@
 local emthree = require "emthree.emthree"
 local effects = require "emthree.effects"
 local COMMON = require "libs.common"
+local WORLD = require "world.world"
 
 local blocksize = 80		-- Distance between block centers
 local boardwidth = 7		-- Number of columns
@@ -43,6 +44,37 @@ function init(self)
 	emthree.stabilize(self.board, function()
 		msg.post(".", "acquire_input_focus")
 	end)
+
+	local remove = self.board.on_match
+	emthree.on_match(self.board, function(board, block, horisontal_neighbors, vertical_neighbors)
+		local points = 1
+		if #horisontal_neighbors >= 2 then
+			points = points + #horisontal_neighbors
+			emthree.remove_block(board, block)
+			emthree.remove_blocks(board, horisontal_neighbors)
+		end
+		if #vertical_neighbors >= 2 then
+			points = points + #vertical_neighbors
+			emthree.remove_block(board, block)
+			emthree.remove_blocks(board, vertical_neighbors)
+		end
+		if points >= 3 then
+			local b = WORLD.buildings[COMMON.GLOBAL.slot]
+			if block.color == hash("exp_m3") then
+				b:add_exp(points)
+			elseif block.color == hash("repair_m3") then
+				b:add_hp(points)
+			elseif block.color == hash("tech_m3") then
+				WORLD:change_tech(points)
+			elseif block.color == hash("time_m3") then
+				b:add_time(points)
+			end
+		end
+	end)
+end
+
+local function on_block_removed(board, block)
+   print(block)
 end
 
 function update(self, dt)
