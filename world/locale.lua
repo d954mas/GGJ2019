@@ -52,7 +52,7 @@ function M:initialize(eng)
 	--endregion
 
 	self.M3_HELP_TEXT = eng and "" or ""..
-	"Необходим ремонт<img=gui:tech_icon/>.Улучшай здание <img=gui:upgrade_icon/>.Ускоряй его работу<img=gui:stopwatch_icon/> При работе твои инженерные навыки <img=gui:tech_icon/> улучшаются, они тебе еще пригодятся"
+	"Проводи ремонт<img=gui:repair_icon/>.Улучшай здание <img=gui:upgrade_icon/>.Ускоряй его работу<img=gui:stopwatch_icon/> При работе твои инженерные навыки <img=gui:tech_icon/> улучшаются, они тебе еще пригодятся"
 	self.M3_HELP_A1 = "Понятно"
 
 	self.TASK_1_TEXT = self.M3_HELP_TEXT

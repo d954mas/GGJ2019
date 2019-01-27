@@ -64,6 +64,9 @@ images {
 images {
   image: "/assets/images/gui/vopros.png"
 }
+images {
+  image: "/assets/images/gui/repair_icon.png"
+}
 margin: 0
 extrude_borders: 2
 inner_padding: 0
