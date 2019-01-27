@@ -475,7 +475,7 @@ nodes {
 nodes {
   position {
     x: 0.0
-    y: -16.0
+    y: -13.0
     z: 0.0
     w: 1.0
   }
@@ -486,8 +486,8 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 1.0
-    y: 1.0
+    x: 1.4
+    y: 1.4
     z: 1.0
     w: 1.0
   }
@@ -505,7 +505,7 @@ nodes {
   }
   type: TYPE_PIE
   blend_mode: BLEND_MODE_ALPHA
-  texture: "gui/deadline_clock"
+  texture: "game/time_m3"
   id: "build/clock"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE

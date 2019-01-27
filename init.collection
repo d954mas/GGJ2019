@@ -299,7 +299,7 @@ embedded_instances {
   "  data: \"sound: \\\"/assets/music/prologue.ogg\\\"\\n"
   "looping: 1\\n"
   "group: \\\"master\\\"\\n"
-  "gain: 1.0\\n"
+  "gain: 0.0\\n"
   "\"\n"
   "  position {\n"
   "    x: 0.0\n"

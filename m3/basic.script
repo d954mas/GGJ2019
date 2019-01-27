@@ -1,16 +1,16 @@
 local emthree = require "emthree.emthree"
 local effects = require "emthree.effects"
+local COMMON = require "libs.common"
 
 local blocksize = 80		-- Distance between block centers
-local boardwidth = 6		-- Number of columns
-local boardheight = 10		-- Number of rows
+local boardwidth = 7		-- Number of columns
+local boardheight = 6		-- Number of rows
 
 local colors = {
-	hash("brickBlue06"),
-	hash("brickGreen05"),
-	hash("brickRed04"),
-	hash("brickWhite05"),
-	hash("brickYellow03"),
+	hash("exp_m3"),
+	hash("repair_m3"),
+	hash("tech_m3"),
+	hash("time_m3"),
 }
 
 local function create_block(position, type, color)
@@ -19,17 +19,20 @@ local function create_block(position, type, color)
 	end
 	local id = factory.create("#factory", position, null, { color = color, type = type })
 	msg.post(id, "set_parent", { parent_id = go.get_id(), keep_world_transform = 0 })
+	go.set_scale(vmath.vector3(0.8),id)
 	return id, color, type
 end
 
 local function create_spawner(position, type)
-	position.z = 1
+	position.z = -2
 	local id = factory.create("#factory", position, null, { type = type, color = hash("brickGrey") })
 	msg.post(id, "set_parent", { parent_id = go.get_id(), keep_world_transform = 0 })
 	return id, type
 end
 
 function init(self)
+	self.end_pos = go.get_position()
+	self.invizible = vmath.vector3(-100)
 	self.board = emthree.create_board(boardwidth, boardheight, blocksize, { direction = emthree.SLIDE_DOWN })
 	emthree.on_create_block(self.board, create_block)
 	emthree.on_create_spawner(self.board, create_spawner)
@@ -42,6 +45,19 @@ function init(self)
 	end)
 end
 
+function update(self, dt)
+	local scale = COMMON.GLOBAL.M3_SCALE.x
+	if scale == 0 then
+		go.set_position(self.invizible)
+	else
+	--	go.set_scale(COMMON.GLOBAL.M3_SCALE,"slot_modal:/m3/root")
+		--local center = vmath.vector3(-960/2,-540/2,0) * scale
+		--go.set_position(center+self.end_pos)
+		if scale == 1 then go.set_position(self.end_pos) else
+			go.set_position(self.invizible)
+		end	
+	end
+end
 
 function on_input(self, action_id, action)
 	if action_id == hash("touch") and (action.pressed or action.released) then

@@ -20,7 +20,7 @@ instances {
   }
 }
 collection_instances {
-  id: "basic"
+  id: "m3"
   collection: "/m3/basic.collection"
   position {
     x: 0.0

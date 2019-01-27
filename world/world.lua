@@ -78,6 +78,9 @@ end
 function M:update(dt, no_save)
 	self.ecs_world:update(dt*self.time_scale)
 	self.plot:update(dt)
+	for _,b in ipairs(self.buildings) do
+		b:update(dt)
+	end
 end
 
 

@@ -12,6 +12,7 @@ function init(self)
 	self.root = gui.get_node("root")
 	self.building = WORLD.buildings[COMMON.GLOBAL.slot]
 	gui.set_text(self.title,WORLD.locale["BUILDING_" ..  COMMON.GLOBAL.slot])
+	gui.set_scale(self.root,vmath.vector3(0))
 	gui.animate(self.root,gui.PROP_SCALE,vmath.vector3(1),gui.EASING_INSINE,0.5,0,function ()
 		COMMON.INPUT.acquire()
 	end)
@@ -19,6 +20,13 @@ function init(self)
 	self.hp_bar = GUI.ProgressBar({ root = gui.get_node("hp_bar/bar"), background = gui.get_node("hp_bar/background"),
 									label = gui.get_node("hp_bar/lbl") })
 	self.hp_bar:set_max_value(1)
+	self.time_bar = GUI.ProgressBar({ root = gui.get_node("time_bar/bar"), background = gui.get_node("time_bar/background"),
+									label = gui.get_node("time_bar/lbl") })
+	self.time_bar:set_max_value(1)
+	self.exp_bar = GUI.ProgressBar({ root = gui.get_node("exp_bar/bar"), background = gui.get_node("exp_bar/background"),
+									label = gui.get_node("exp_bar/lbl") })
+	self.exp_bar:set_max_value(1)
+	COMMON.GLOBAL.M3_SCALE = vmath.vector3(0)
 end
 ---@param self SelfSlotModalGui
 function final(self)
@@ -27,7 +35,9 @@ end
 ---@param self SelfSlotModalGui
 function update(self, dt)
 	self.hp_bar:set_progress(self.building.e.hp)
-	print(self.building.e.hp)
+	self.time_bar:set_progress(self.building.e.time/self.building.e.total_time)
+	self.exp_bar:set_progress(0)
+	COMMON.GLOBAL.M3_SCALE = gui.get_scale(self.root)
 end
 ---@param self SelfSlotModalGui
 function on_message(self, message_id, message, sender)
@@ -40,6 +50,8 @@ function on_input(self, action_id, action)
 		if gui.pick_node(gui.get_node("cross"),action.x, action.y) then
 			gui.animate(self.root,gui.PROP_SCALE,vmath.vector3(0),gui.EASING_INSINE,0.5,0,function ()
 				--COMMON.INPUT.acquire()
+				gui.set_scale(self.root,vmath.vector3(0))
+				COMMON.GLOBAL.M3_SCALE = vmath.vector3(0)
 				SM.back()
 			end)
 		end

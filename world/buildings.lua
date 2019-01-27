@@ -20,6 +20,7 @@ function Building:initialize()
 	self.e.on_time = function(e,world) if self.state == STATES.BUILD then self:on_time(world) end end
 	self.e.hp = 1
 	self.cost = {}
+	self.hp_lose_speed = 0.05
 	--self.state = self.static.states.HIDE
 end
 
@@ -28,10 +29,15 @@ function Building:set_state(state)
 	self.e.time = 0
 end
 
+function Building:update(dt)
+	if self.state == STATES.BUILD then
+		self.e.hp = math.max(0,self.e.hp - self.hp_lose_speed * dt)
+	end
+end
+
 ---@param world World
 function Building:on_time(world)
 	world:change_ore(5)
-	self.e.hp = self.e.hp - 0.01
 end
 
 function Building:on_touch(slot)

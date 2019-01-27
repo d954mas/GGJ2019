@@ -16,8 +16,8 @@ components {
 embedded_components {
   id: "sprite"
   type: "sprite"
-  data: "tile_set: \"/examples/basic/basic.atlas\"\n"
-  "default_animation: \"brickBlue06\"\n"
+  data: "tile_set: \"/assets/images/game/game.atlas\"\n"
+  "default_animation: \"repair_m3\"\n"
   "material: \"/assets/materials/sprite_m3.material\"\n"
   "blend_mode: BLEND_MODE_ALPHA\n"
   ""
