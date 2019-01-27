@@ -37,6 +37,9 @@ images {
 images {
   image: "/assets/images/game/m3/time_m3.png"
 }
+images {
+  image: "/assets/images/game/m3/border_m3.png"
+}
 margin: 0
 extrude_borders: 2
 inner_padding: 0

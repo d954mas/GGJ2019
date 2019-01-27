@@ -51,6 +51,7 @@ function Building:get_values()
 	return data
 end
 
+
 function Building:add_exp(points)
 	local exp = points
 	self.exp = self.exp + exp

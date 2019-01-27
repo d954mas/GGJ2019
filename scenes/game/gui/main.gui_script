@@ -47,6 +47,8 @@ function update(self, dt)
 		self.task_description = WORLD.tasks:get_current():get_description()
 		set_richtext(self,"description",self.task_description_settings,self.task_description)
 	end
+
+	gui.set_text(gui.get_node("days_lbl"),string.format(WORLD.locale.DAYS,math.floor(WORLD.days)))
 	--gui.set_text(self.task_description_lbl,WORLD.tasks:get_current():get_description())
 
 end

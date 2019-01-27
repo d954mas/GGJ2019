@@ -18,6 +18,8 @@ function M:initialize(eng)
 	self.BUILDING_4 =  eng and "Reactor" or "Лаборатория"
 	self.BUILDING_5 =  eng and "Reactor" or "Здание 5"
 
+	self.DAYS =  eng and "Day:%d" or "День:%d"
+
 
 	self.NAME_AI = eng and "AI" or "ИИ"
 	--region dialog1
@@ -56,10 +58,30 @@ function M:initialize(eng)
 	self.M3_HELP_A1 = "Понятно"
 
     self.TASK_2_TEXT = eng and "" or "Отличная работа.Энергии достаточно для запуска шахты.При своей работе шахтеры тратят энергию, внимательно следи за ее количсетвом"
-    self.TASK_2_A1 = eng and "" or "Вперед.В шахты."
+	self.TASK_2_A1 = eng and "" or "Вперед.В шахты."
 
-    self.TASK_2_DESCRIPTION_1 = eng and "" or "Запусти шахты."
-    self.TASK_2_DESCRIPTION_2 = eng and "" or "Добыть 50 <img=gui:ore_icon/>"
+	self.TASK_2_DESCRIPTION_1 = eng and "" or "Запусти шахты."
+	self.TASK_2_DESCRIPTION_2 = eng and "" or "Добыть 50 <img=gui:ore_icon/>"
+
+	self.TASK_3_TEXT = eng and "" or "У нас достаточно материалов для запуска завода.На заводе руда перерабатываеться в сталь." ..
+	"Собрав нужно количество стали, возможно создать новый аварийный передатчик"
+	self.TASK_3_A1 = eng and "" or "Опять работа."
+	self.TASK_3_A2 = eng and "" or "Какой был смысл в передатчике,если мне нужно делать новый"
+
+	self.TASK_3_DESCRIPTION_1 = eng and "" or "Запусти завод."
+	self.TASK_3_DESCRIPTION_2 = eng and "" or "Добыть 20 <img=gui:steel_icon/>"
+
+	self.TASK_4_TEXT = eng and "" or "Завод работает успещно.Для передатчика нужны различные материалы.Используй свои навыки чтобы создать новый его"
+	self.TASK_4_A1 = eng and "" or "Вперед.Я почти выбрался."
+	self.TASK_4_A2 = eng and "" or "Еще немного и я вернусь <bold>домой<bold>"
+
+	self.TASK_4_DESCRIPTION_1 = eng and "" or "Добыть 80 <img=gui:energy_icon/>"
+	self.TASK_4_DESCRIPTION_2 = eng and "" or "Добыть 50 <img=gui:steel_icon/>"
+	self.TASK_4_DESCRIPTION_3 = eng and "" or "Добыть 100 <img=gui:tech_icon/>"
+
+	self.TASK_5_TEXT = eng and "" or "Победа"
+	self.TASK_5_A1 = eng and "" or "Ура"
+	self.TASK_5_A2 = eng and "" or "Ура2"
 end
 
 

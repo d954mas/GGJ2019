@@ -107,6 +107,27 @@ function Task2:initialize(world)
     self:add_task(CallbackTask("",world.locale.TASK_2_DESCRIPTION_2,world,function() return self.world.resources.ore >=50 end))
 end
 
+---@class Task3:ComplexTask
+local Task3 = COMMON.class("Task3",ComplexTask)
+
+function Task3:initialize(world)
+    ComplexTask.initialize(self,world.locale.TASK_3_NAME,world)
+    self:add_task(CallbackTask("",world.locale.TASK_3_DESCRIPTION_1,world,function()
+        return self.world.buildings[3].state == self.world.buildings[3].STATES.BUILD end))
+    self:add_task(CallbackTask("",world.locale.TASK_3_DESCRIPTION_2,world,function() return self.world.resources.steel >=20 end))
+end
+
+---@class Task4:ComplexTask
+local Task4 = COMMON.class("Task4",ComplexTask)
+
+function Task4:initialize(world)
+    ComplexTask.initialize(self,world.locale.TASK_4_NAME,world)
+    self:add_task(CallbackTask("",world.locale.TASK_4_DESCRIPTION_1,world,function()
+        return self.world.resources.energy >=80 end))
+    self:add_task(CallbackTask("",world.locale.TASK_4_DESCRIPTION_2,world,function() return self.world.resources.steel >=40 end))
+    self:add_task(CallbackTask("",world.locale.TASK_4_DESCRIPTION_3,world,function() return self.world.resources.tech >=100 end))
+end
+
 
 ---endregion
 
@@ -153,6 +174,9 @@ function M.new_tasks(world)
     tasks:add_task(EmptyTask(world))
     tasks:add_task(Task1(world))
     tasks:add_task(Task2(world))
+    tasks:add_task(Task3(world))
+    tasks:add_task(Task4(world))
+    tasks:add_task(EmptyTask(world))
     return tasks
 end
 

@@ -16,6 +16,9 @@ local EVENTS = {
 	RESOURCE_CHANGED = "RESOURCE_CHANGED" --{type = "energy"}
 }
 
+function M:reset()
+
+end
 
 function M:initialize()
 	self.EVENTS = EVENTS
@@ -24,6 +27,7 @@ function M:initialize()
 	self.ecs_world = ECS.world()
 	self.ecs_world.world = self
 	self.time_scale = 1
+	self.days = 0
 	self.resources = {
 		energy = 0, --нужна для работы роботов и турелей. И для силового поля. Так-же для покупки и апгрейда
 		ore = 0, --добывается роботами на астероидах
@@ -81,6 +85,7 @@ function M:update(dt, no_save)
 	for _,b in ipairs(self.buildings) do
 		b:update(dt)
 	end
+	self.days = self.days + 365/60/2 * dt
 end
 
 
@@ -89,7 +94,25 @@ function M:save(file)
 end
 
 function M:dispose()
+	self.days = 0
 	self.ecs_world:clear()
+	--copy paste from init
+	self.resources = {
+		energy = 0, --нужна для работы роботов и турелей. И для силового поля. Так-же для покупки и апгрейда
+		ore = 0, --добывается роботами на астероидах
+		steel = 0, --из руды на заводе получаем
+		hp = 100, --здоровье базы.Если в 0 то мы проиграли. Возвращаемся на прошлый stage
+		tech = 0, --очки для прокачки
+	}
+	---@type Building[]
+	self.buildings = {BUILDINGS.generator(self),BUILDINGS.ore(self), BUILDINGS.factory(self), BUILDINGS.lab(self),BUILDINGS.ore(self)}
+	for _,b in ipairs(self.buildings) do
+		self.ecs_world:addEntity(b.e)
+	end
+	SYSTEMS.init_systems(self.ecs_world)
+	self.plot = PLOT(self)
+	self.locale = LOCALE()
+	self.tasks = TASKS.new_tasks(self)
 end
 
 function M:load(file)

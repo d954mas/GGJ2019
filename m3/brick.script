@@ -1,3 +1,4 @@
+local COMMON = require "libs.common"
 go.property("color", hash("yellow"))
 go.property("type", hash("plain"))
 
@@ -5,10 +6,18 @@ local emthree = require "emthree.emthree"
 
 function init(self)
 	msg.post("#sprite", "play_animation", { id = self.color })
+	msg.post("#border", COMMON.HASHES.MSG_DISABLE)
 end
 
 function on_message(self, message_id, message, sender)
 	if message_id == emthree.REMOVE then
 		go.delete()
 	end
+	if message_id == emthree.SELECT then
+		msg.post("#border", COMMON.HASHES.MSG_ENABLE)
+	end
+	if message_id == emthree.RESET then
+		msg.post("#border", COMMON.HASHES.MSG_DISABLE)
+	end
+	
 end

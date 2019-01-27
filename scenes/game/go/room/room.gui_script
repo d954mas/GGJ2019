@@ -36,6 +36,7 @@ function init(self)
 	self.click_area = gui.get_node("click_area")
 	self.not_build = gui.get_node("not_build")
 	self.build = gui.get_node("build")
+	self.build_lbl = gui.get_node("build/lbl")
 	self.build_clock = gui.get_node("build/clock")
 
 
@@ -72,6 +73,7 @@ function on_message(self, message_id, message, sender)
 		self.slot = message.slot
 		msg.post("/main_asteroid/room" .. self.slot .."_tiles",COMMON.HASHES.MSG_DISABLE)
 		self.building = WORLD.buildings[self.slot]
+		gui.set_text(self.build_lbl,WORLD.locale["BUILDING_" .. self.slot])
 	end	
 end
 

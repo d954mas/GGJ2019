@@ -81,11 +81,83 @@ function OreLine:check()
 	return self.world.tasks.current == 2 and self.world.tasks:get_current():check()
 end
 
+---@class SteelLine:PlotLine
+local SteelLine = COMMON.class("SteelLine",Line)
+
+---@param world World
+function SteelLine:initialize(world)
+	self.world = world
+	self.co = function()
+		while SM.MANAGER.co do coroutine.yield() end
+		local l = world.locale
+		local dialog = {
+			{text = l.TASK_3_TEXT, name = l.NAME_AI, a1 = {text = l.TASK_3_A1},a2 = {text = l.TASK_3_A2}},
+		}
+		SM.show("TextModal",{dialog = dialog},{popup = SM.MANAGER.stack:peek()._name ~= "SlotModal"})
+		self:wait_text_modal()
+		world.tasks:skip_task()
+		world.buildings[3].state = world.buildings[3].STATES.NOT_BUILD
+	end
+end
+
+function SteelLine:check()
+	return self.world.tasks.current == 3 and self.world.tasks:get_current():check()
+end
+
+---@class TechLine:PlotLine
+local TechLine = COMMON.class("TechLine",Line)
+
+---@param world World
+function TechLine:initialize(world)
+	self.world = world
+	self.co = function()
+		while SM.MANAGER.co do coroutine.yield() end
+		local l = world.locale
+		local dialog = {
+			{text = l.TASK_4_TEXT, name = l.NAME_AI, a1 = {text = l.TASK_4_A1},a2 = {text = l.TASK_4_A2}},
+		}
+		SM.show("TextModal",{dialog = dialog},{popup = SM.MANAGER.stack:peek()._name ~= "SlotModal"})
+		self:wait_text_modal()
+		world.tasks:skip_task()
+		--world.buildings[3].state = world.buildings[3].STATES.NOT_BUILD
+	end
+end
+
+function TechLine:check()
+	return self.world.tasks.current == 4 and self.world.tasks:get_current():check()
+end
+
+---@class FinalLine:PlotLine
+local FinalLine = COMMON.class("FinalLine",Line)
+
+---@param world World
+function FinalLine:initialize(world)
+	self.world = world
+	self.co = function()
+		while SM.MANAGER.co do coroutine.yield() end
+		local l = world.locale
+		local dialog = {
+			{text = l.TASK_5_TEXT, name = l.NAME_AI, a1 = {text = l.TASK_5_A1},a2 = {text = l.TASK_5_A2}},
+		}
+		SM.show("TextModal",{dialog = dialog},{popup = SM.MANAGER.stack:peek()._name ~= "SlotModal"})
+		self:wait_text_modal()
+		world.tasks:skip_task()
+		--world.buildings[3].state = world.buildings[3].STATES.NOT_BUILD
+	end
+end
+
+function FinalLine:check()
+	return self.world.tasks.current == 5 and self.world.tasks:get_current():check()
+end
+
 ---@param world World
 function M:initialize(world)
     self.lines = {
 		IntroLine(world),
 		OreLine(world),
+		SteelLine(world),
+		TechLine(world),
+		FinalLine(world),
 		Line(world)
 	}
 	self.line_idx = 0
