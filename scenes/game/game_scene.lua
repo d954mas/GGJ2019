@@ -3,6 +3,7 @@ local Scene = ProxyScene:subclass("LogoScene")
 local COMMON = require "libs.common"
 local WORLD = require "world.world"
 local Subscription = require "libs.context_subscription"
+local SM = require "Jester.jester"
 
 
 function Scene:init_input()
@@ -38,6 +39,11 @@ end
 function Scene:update(go_self, dt)
     self.subscription:act()
     WORLD:update(dt)
+
+    if COMMON.GLOBAL.M3_NEED_RESTART and SM.MANAGER.stack:peek()._name == "GameScene" then
+        SM.show("SlotModal",{slot = COMMON.GLOBAL.slot},{popup = true})
+        COMMON.GLOBAL.M3_NEED_RESTART = false
+    end
 end
 
 function Scene:show_out(co)

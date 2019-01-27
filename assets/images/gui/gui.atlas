@@ -52,6 +52,18 @@ images {
 images {
   image: "/assets/images/gui/bar_yellow.png"
 }
+images {
+  image: "/assets/images/gui/upgrade_icon.png"
+}
+images {
+  image: "/assets/images/gui/stopwatch.png"
+}
+images {
+  image: "/assets/images/gui/stopwatch_icon.png"
+}
+images {
+  image: "/assets/images/gui/vopros.png"
+}
 margin: 0
 extrude_borders: 2
 inner_padding: 0

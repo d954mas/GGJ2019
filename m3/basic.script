@@ -2,6 +2,7 @@ local emthree = require "emthree.emthree"
 local effects = require "emthree.effects"
 local COMMON = require "libs.common"
 local WORLD = require "world.world"
+local SM = require "Jester.jester"
 
 local blocksize = 80		-- Distance between block centers
 local boardwidth = 7		-- Number of columns
@@ -79,7 +80,7 @@ end
 
 function update(self, dt)
 	local scale = COMMON.GLOBAL.M3_SCALE.x
-	if scale == 0 then
+	if scale == 0 or SM.MANAGER.stack:peek()._name ~= "SlotModal" then
 		go.set_position(self.invizible)
 	else
 	--	go.set_scale(COMMON.GLOBAL.M3_SCALE,"slot_modal:/m3/root")

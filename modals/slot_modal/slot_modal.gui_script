@@ -27,6 +27,7 @@ function init(self)
 									label = gui.get_node("exp_bar/lbl") })
 	self.exp_bar:set_max_value(1)
 	COMMON.GLOBAL.M3_SCALE = vmath.vector3(0)
+
 end
 ---@param self SelfSlotModalGui
 function final(self)
@@ -54,6 +55,14 @@ function on_input(self, action_id, action)
 				COMMON.GLOBAL.M3_SCALE = vmath.vector3(0)
 				SM.back()
 			end)
+		elseif gui.pick_node(gui.get_node("vopros"),action.x, action.y) then
+			COMMON.GLOBAL.M3_HELP = true
+			COMMON.GLOBAL.M3_NEED_RESTART = true
+			local l = WORLD.locale
+			local dialog = {
+				{text = l.M3_HELP_TEXT, name = l.NAME_AI,a1 = {text = l.M3_HELP_A1}}
+			}
+			SM.show("TextModal",{dialog = dialog},{popup = false})
 		end
 	end
 end
