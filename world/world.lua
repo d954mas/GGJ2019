@@ -99,8 +99,8 @@ end
 
 function M:click_slot(slot)
 	COMMON.GLOBAL.slot = slot
-	self.buildings[slot]:on_touch()
-	--SM.show("SlotModal",{slot = slot},{popup = true})
+	self.buildings[slot]:on_touch(slot)
+
 end
 
 return M()

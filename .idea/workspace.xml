@@ -3,9 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="3c62f91f-e262-404b-a264-56f876977135" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/game/game.atlas" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/game/game.atlas" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scenes/game/go/main_asteroid.collection" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/game/go/main_asteroid.collection" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scenes/game/go/room/room.gui_script" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/game/go/room/room.gui_script" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/gui/gui.atlas" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/gui/gui.atlas" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modals/slot_modal/slot_modal.gui" beforeDir="false" afterPath="$PROJECT_DIR$/modals/slot_modal/slot_modal.gui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modals/slot_modal/slot_modal.gui_script" beforeDir="false" afterPath="$PROJECT_DIR$/modals/slot_modal/slot_modal.gui_script" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modals/text_modal/text_modal.gui" beforeDir="false" afterPath="$PROJECT_DIR$/modals/text_modal/text_modal.gui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modals/text_modal/text_modal.gui_script" beforeDir="false" afterPath="$PROJECT_DIR$/modals/text_modal/text_modal.gui_script" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/world/buildings.lua" beforeDir="false" afterPath="$PROJECT_DIR$/world/buildings.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/world/locale.lua" beforeDir="false" afterPath="$PROJECT_DIR$/world/locale.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/world/world.lua" beforeDir="false" afterPath="$PROJECT_DIR$/world/world.lua" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,10 +21,10 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/scenes/game/go/room/room.gui_script">
+        <entry file="file://$PROJECT_DIR$/modals/slot_modal/slot_modal.gui_script">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="507">
-              <caret line="72" column="89" selection-start-line="72" selection-start-column="89" selection-end-line="72" selection-end-column="89" />
+            <state relative-caret-position="368">
+              <caret line="35" column="11" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -53,6 +58,7 @@
       <find>show_n</find>
       <find>initialize</find>
       <find>im</find>
+      <find>w</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -77,7 +83,6 @@
         <option value="$PROJECT_DIR$/scenes/logo/logo_scene.lua" />
         <option value="$PROJECT_DIR$/libs/scripts/gui_follow_go_gui_script.lua" />
         <option value="$PROJECT_DIR$/modals/slot_modal.lua" />
-        <option value="$PROJECT_DIR$/modals/slot_modal/slot_modal.gui_script" />
         <option value="$PROJECT_DIR$/Jester/scene_stack.lua" />
         <option value="$PROJECT_DIR$/init_controller.script" />
         <option value="$PROJECT_DIR$/modals/text_modal/text_modal.lua" />
@@ -87,20 +92,21 @@
         <option value="$PROJECT_DIR$/scenes/game/go/scroll_background.script" />
         <option value="$PROJECT_DIR$/world/plot.lua" />
         <option value="$PROJECT_DIR$/scenes/game/go/room/room.script" />
-        <option value="$PROJECT_DIR$/world/buildings.lua" />
-        <option value="$PROJECT_DIR$/modals/text_modal/text_modal.gui_script" />
         <option value="$PROJECT_DIR$/world/text_settings.lua" />
         <option value="$PROJECT_DIR$/scenes/game/gui/main.gui_script" />
-        <option value="$PROJECT_DIR$/world/world.lua" />
         <option value="$PROJECT_DIR$/world/tasks.lua" />
-        <option value="$PROJECT_DIR$/world/locale.lua" />
         <option value="$PROJECT_DIR$/scenes/game/go/room/room.gui_script" />
+        <option value="$PROJECT_DIR$/modals/text_modal/text_modal.gui_script" />
+        <option value="$PROJECT_DIR$/world/locale.lua" />
+        <option value="$PROJECT_DIR$/world/world.lua" />
+        <option value="$PROJECT_DIR$/world/buildings.lua" />
+        <option value="$PROJECT_DIR$/modals/slot_modal/slot_modal.gui_script" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-15" />
-    <option name="y" value="214" />
+    <option name="x" value="110" />
+    <option name="y" value="12" />
     <option name="width" value="1723" />
     <option name="height" value="948" />
   </component>
@@ -120,19 +126,6 @@
               <item name="GGJ2019" type="b2602c69:ProjectViewProjectNode" />
               <item name="GGJ2019" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GGJ2019" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GGJ2019" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GGJ2019" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GGJ2019" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-              <item name="gui" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="GGJ2019" type="b2602c69:ProjectViewProjectNode" />
@@ -186,7 +179,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548540956842" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548570779297" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../api1_2_145.zip!/api" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -227,13 +220,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13966000" />
+    <option name="totallyTimeSpent" value="15829000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-15" y="214" width="1723" height="948" extended-state="0" />
+    <frame x="110" y="12" width="1723" height="948" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2525495" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2525495" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -249,9 +242,9 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="LuaCheck" order="7" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" visible="true" weight="0.32943144" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="9" visible="true" weight="0.3286219" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.55108875" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.5500589" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -483,13 +476,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modals/slot_modal/slot_modal.gui_script">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-51">
-          <caret line="18" column="3" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gooey/gooey.lua">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -508,13 +494,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="27" column="18" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modals/text_modal/text_modal.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
@@ -546,13 +525,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/world/buildings.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="656">
-          <caret line="68" column="31" selection-start-line="68" selection-start-column="31" selection-end-line="68" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/libs/input_receiver.lua">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
@@ -574,13 +546,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modals/text_modal/text_modal.gui_script">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="29" column="30" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/world/text_settings.lua">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="384">
@@ -588,24 +553,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/world/world.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="688">
-          <caret line="43" column="7" selection-start-line="43" selection-start-column="7" selection-end-line="43" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/world/tasks.lua">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/world/locale.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="16" column="80" selection-start-line="16" selection-start-column="80" selection-end-line="16" selection-end-column="80" />
         </state>
       </provider>
     </entry>
@@ -625,8 +576,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scenes/game/go/room/room.gui_script">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="72" column="89" selection-start-line="72" selection-start-column="89" selection-end-line="72" selection-end-column="89" />
+        <state relative-caret-position="176">
+          <caret line="41" column="20" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modals/text_modal/text_modal.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="18" column="28" lean-forward="true" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/world/locale.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="15" column="56" selection-start-line="15" selection-start-column="56" selection-end-line="15" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modals/text_modal/text_modal.gui_script">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16">
+          <caret line="89" column="40" lean-forward="true" selection-start-line="89" selection-start-column="40" selection-end-line="89" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/world/world.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="516">
+          <caret line="92" lean-forward="true" selection-start-line="92" selection-end-line="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/world/buildings.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="512">
+          <caret line="47" column="21" lean-forward="true" selection-start-line="47" selection-start-column="21" selection-end-line="47" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modals/slot_modal/slot_modal.gui_script">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="35" column="11" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
         </state>
       </provider>
     </entry>

@@ -10,6 +10,12 @@ function M:initialize(eng)
 	self.STEEL = "%d <img=gui:steel_icon/>"
 	self.TECH = "%d <img=gui:tech_icon/>"
 
+	self.BUILDING_1 =  eng and "Reactor" or "Реактор"
+	self.BUILDING_2 =  eng and "Reactor" or "Шахта"
+	self.BUILDING_3 =  eng and "Reactor" or "Переплавка"
+	self.BUILDING_4 =  eng and "Reactor" or "Лаборатория"
+	self.BUILDING_5 =  eng and "Reactor" or "Здание 5"
+
 
 	self.NAME_AI = eng and "AI" or "ИИ"
 	self.TASK_1_NAME = eng and "" or "Калибровка реактора"

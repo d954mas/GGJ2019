@@ -1,7 +1,19 @@
 script: "/modals/slot_modal/slot_modal.gui_script"
 fonts {
-  name: "roboto_regular"
-  font: "/assets/fonts/roboto_regular.font"
+  name: "Roboto-Bold"
+  font: "/assets/fonts/Roboto-Bold.font"
+}
+fonts {
+  name: "Roboto-BoldItalic"
+  font: "/assets/fonts/Roboto-BoldItalic.font"
+}
+fonts {
+  name: "Roboto-Italic"
+  font: "/assets/fonts/Roboto-Italic.font"
+}
+fonts {
+  name: "Roboto-Regular"
+  font: "/assets/fonts/Roboto-Regular.font"
 }
 textures {
   name: "game"
@@ -19,8 +31,62 @@ background_color {
 }
 nodes {
   position {
-    x: 467.0
-    y: 262.0
+    x: 460.0
+    y: 223.0
+    z: 0.0
+    w: 1.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale {
+    x: 0.9
+    y: 0.9
+    z: 1.0
+    w: 1.0
+  }
+  size {
+    x: 650.0
+    y: 500.0
+    z: 0.0
+    w: 1.0
+  }
+  color {
+    x: 0.7019608
+    y: 0.8
+    z: 1.0
+    w: 1.0
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "gui/panel-1"
+  id: "root"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 44.0
+    y: 44.0
+    z: 44.0
+    w: 44.0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1.0
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+}
+nodes {
+  position {
+    x: 0.0
+    y: 225.0
     z: 0.0
     w: 1.0
   }
@@ -37,8 +103,8 @@ nodes {
     w: 1.0
   }
   size {
-    x: 400.0
-    y: 300.0
+    x: 200.0
+    y: 66.0
     z: 0.0
     w: 1.0
   }
@@ -50,31 +116,32 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "gui/white"
-  id: "root"
+  texture: "gui/metalPanel"
+  id: "box"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
+  parent: "root"
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 0.0
+    x: 15.0
+    y: 15.0
+    z: 15.0
+    w: 15.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
   clipping_inverted: false
-  alpha: 0.59
+  alpha: 1.0
   template_node_child: false
   size_mode: SIZE_MODE_MANUAL
 }
 nodes {
   position {
     x: 0.0
-    y: 124.0
+    y: 0.0
     z: 0.0
     w: 1.0
   }
@@ -104,9 +171,9 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "Slot:1"
-  font: "roboto_regular"
-  id: "lbl_title"
+  text: ""
+  font: "Roboto-Regular"
+  id: "lbl_name"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -124,7 +191,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  parent: "root"
+  parent: "box"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -133,6 +200,61 @@ nodes {
   template_node_child: false
   text_leading: 1.0
   text_tracking: 0.0
+}
+nodes {
+  position {
+    x: 292.0
+    y: 218.0
+    z: 0.0
+    w: 1.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale {
+    x: 2.0
+    y: 2.0
+    z: 1.0
+    w: 1.0
+  }
+  size {
+    x: 38.0
+    y: 36.0
+    z: 0.0
+    w: 1.0
+  }
+  color {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "gui/cross"
+  id: "cross"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "root"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 0.0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1.0
+  template_node_child: false
+  size_mode: SIZE_MODE_AUTO
 }
 material: "/builtins/materials/gui.material"
 adjust_reference: ADJUST_REFERENCE_PARENT

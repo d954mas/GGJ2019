@@ -54,7 +54,12 @@ local function show_page(self, idx)
 
 		gui.set_enabled(self.btn_ok,not (page.a1 or page.a2 or page.a3))
 	else
-		SM.back()
+		COMMON.INPUT.release()
+		gui.animate(self.root,gui.PROP_SCALE,vmath.vector3(0),gui.EASING_INSINE,0.5,0,function ()
+			--COMMON.INPUT.acquire()
+			SM.back()
+		end)
+
 	end
 end
 
@@ -87,6 +92,8 @@ function init(self)
 												 position = vmath.vector3(0,25,0)})
 	COMMON.INPUT.acquire()
 
+	gui.set_scale(self.root,vmath.vector3(0))
+
 end
 ---@param self SelfTextModal
 function final(self)
@@ -101,6 +108,10 @@ function on_message(self, message_id, message, sender)
 		self.page_idx = 0
 		self.dialog = COMMON.GLOBAL.text_modal_input.dialog
 		show_page(self)
+		COMMON.INPUT.release()
+		gui.animate(self.root,gui.PROP_SCALE,vmath.vector3(1),gui.EASING_INSINE,0.5,0,function ()
+			COMMON.INPUT.acquire()
+		end)
     end
 end
 ---@param self SelfTextModal

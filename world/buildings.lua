@@ -1,5 +1,6 @@
 local COMMON = require "libs.common"
 local ECS = require "libs.ecs"
+local SM = require "Jester.jester"
 local M = {}
 
 ---@class Building
@@ -31,12 +32,14 @@ function Building:on_time(world)
 	world:change_ore(5)
 end
 
-function Building:on_touch()
+function Building:on_touch(slot)
 	if self.state == STATES.NOT_BUILD then
 		if #self.cost == 0 then
 			--no cost upgrade
 			self:set_state(STATES.BUILD)
 		end
+	elseif self.state == STATES.BUILD then
+		SM.show("SlotModal",{slot = slot},{popup = true})
 	end
 end
 
